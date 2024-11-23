@@ -2,7 +2,7 @@
 
 Proyecto que contempla una página web tradicional, manejando también un módulo administrativo con autenticación básica.
 
-## Pasos de instalación-Ambiente virtual
+## Prerrequisitos
 
 1. Python versión x.x.x
 
