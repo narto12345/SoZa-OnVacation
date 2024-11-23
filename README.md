@@ -22,7 +22,7 @@ py -m venv venv
 venv/Scripts/Activate
 ```
 
-3. Instalar Djnago
+3. Instalar Django
 
 ```bash
 pip install django
