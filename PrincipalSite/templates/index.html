@@ -27,9 +27,11 @@
 </head>
 
 <body>
-    {% extends 'header.html' %}
-    <h1>{{bd}}</h1>
-    {% extends 'footer.html' %}
+    {% extends 'base.html' %}
+
+    {% block content %}
+    Este es el index
+    {% endblock %}
 </body>
 
 </html>
