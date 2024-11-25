@@ -41,6 +41,11 @@
   *::after {
     box-sizing: border-box;
   }
+
+  /* Utilidades */
+  .negrita {
+    font-weight: bold;
+  }
   
   html {
     font-family: sans-serif;
