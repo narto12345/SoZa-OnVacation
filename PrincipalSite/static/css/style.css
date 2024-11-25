@@ -16,7 +16,7 @@
     --white: #fff;
     --gray: #6c757d;
     --gray-dark: #343a40;
-    --primary: #ffffff !important;
+    --primary: #4b0077;
     --secondary: #64da91;
     --success: #28a745;
     --info: #17a2b8;
@@ -25,6 +25,7 @@
     --light: #FFFFFF;
     --dark: #333333;
     --btn-hover: #17a2b8;
+    --btn-contact: #c9a3d4;
     --text-btn:#495057;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
@@ -53,42 +54,50 @@
     display: block;
   }
 
+  /*Estilo personalizado para el header*/
+  .principal-menu{
+    background-color: var(--primary);
+  }
+
   /* Estilo personalizado para el botón de contacto */
-.btn-custom {
-    background-color: var(--light); /* Fondo blanco inicialmente */
+  .btn-custom {
+    background-color: var(--btn-contact); /* Fondo blanco inicialmente */
     color: var(--light);            /* Texto negro */
-    border: 2px solid var(--light); /* Borde negro */
-    padding: 10px 20px;      /* Espaciado interno (ajustable) */
-    font-size: 16px;         /* Tamaño de fuente (ajustable) */
-    border-radius: 5px;      /* Bordes redondeados */
-    text-decoration: none;   /* Elimina el subrayado del enlace */
-    display: inline-flex;    /* Para alinear el contenido en línea */
-    align-items: center;     /* Alineación vertical de los elementos dentro */
+    border: 2px solid var(--btn-contact); /* Borde negro */
+    padding: 10px 20px;             /* Espaciado interno (ajustable) */
+    font-size: 16px;                /* Tamaño de fuente (ajustable) */
+    border-radius: 50px;             /* Bordes redondeados */
+    text-decoration: none;          /* Elimina el subrayado del enlace */
+    display: block;                 /* Hace que el botón sea un bloque de nivel de bloque */
+    width: 100%;                    /* El botón ocupa todo el ancho disponible */
+    box-sizing: border-box;         /* Asegura que el padding y el border se incluyan en el ancho total */
+    margin: 0;                      /* Elimina cualquier margen exterior */
 }
+
 
 /* Estilo para el botón de contacto cuando el ratón pasa sobre él */
 .btn-custom:hover {
-    background-color: var(--btn-hover); /* Fondo rosado claro */
+    background-color: var(--btn-hover) !important; 
     color: black;              /* El texto sigue siendo negro */
-    border-color: #f8c8d6;     /* Bordes del mismo color rosado */
+    border-color: var(--btn-hover) !important;   
 }
 
 /*Íconos y botones inmersos en el menú principal*/
 .nav-item i {
-    font-size: 1.5rem; /* Tamaño de los iconos */
+    font-size: 20px; /* Tamaño de los iconos */
 }
 
-.nav-item {
+.nav-item{
     text-align: center; /* Asegura que el texto esté centrado debajo del icono */
     padding: 10px; /* Agrega un poco de espaciado */
 }
 
 .nav-item:hover i {
-    color: var(--btn-hover) /* Cambia el color del icono al hacer hover */
+    color: var(--btn-hover) !important /* Cambia el color del icono al hacer hover */
 }
 
 .nav-item:hover {
-    color: var(--btn-hover)7; /* Cambia el color del texto al hacer hover */
+    color: var(--btn-hover) !important ; /* Cambia el color del texto al hacer hover */
 }
 .nav-tabs {
     border-bottom: 1px solid #dee2e6;
@@ -9816,7 +9825,7 @@
   .navbar-light .navbar-nav .nav-link {
     padding: 30px 15px;
     color: #333333;
-    font-size: 17px;
+    font-size: 13px;
     font-weight: 500;
     outline: none;
   }
