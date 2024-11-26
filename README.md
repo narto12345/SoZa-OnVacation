@@ -4,7 +4,7 @@ Proyecto que contempla una página web tradicional, manejando también un módul
 
 ## Prerrequisitos
 
-1. Python versión x.x.x
+1. Python versión 3.13.0
 
 ## Pasos de instalación-Ambiente virtual y dependencias
 
@@ -22,10 +22,10 @@ py -m venv venv
 venv/Scripts/Activate
 ```
 
-3. Instalar Django
+3. Instalar módulos necesarios
 
 ```bash
-pip install django
+pip install -r requirements.txt
 ```
 
 ## Ejecución de proyecto
