@@ -5,12 +5,91 @@
 {% endblock %}
 
 {% block content %}
-<!-- Portfolio Start -->
+<!-- Principales ofertas -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="section-title position-relative mb-5">Principales Ofertas</h1>
+            </div>
+            <div class="col-lg-6 mb-5 mb-lg-0 pb-5 pb-lg-0"></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="owl-carousel service-carousel">
+                    <div class="service-item">
+                        <div class="service-img mx-auto">
+                            <img class="rounded-circle w-100 h-100 bg-light p-3" src="../static/img/medellin.avif"
+                                style="object-fit: cover;">
+                        </div>
+                        <div class="content position-relative text-center bg-light rounded p-4 pb-5"
+                            style="margin-top: -75px;">
+                            <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Medellín</h5>
+                            <p>¡Medellín, la ciudad de la eterna primavera te llama! Vive su magia, innovación y
+                                paisajes únicos.
+                            </p>
+                            <a href="#" class="border-bottom border-secondary text-decoration-none text-secondary">Más
+                                detalles</a>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-img mx-auto">
+                            <img class="rounded-circle w-100 h-100 bg-light p-3" src="../static/img/san_andresjpeg.jpeg"
+                                style="object-fit: cover;">
+                        </div>
+                        <div class="content position-relative text-center bg-light rounded p-4 pb-5"
+                            style="margin-top: -75px;">
+                            <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">San Andres</h5>
+                            <p>
+                                Disfruta de las playas más maravillosas de Colombia, con precios imperdibles.
+                            </p>
+                            <a href="#" class="border-bottom border-secondary text-decoration-none text-secondary">Más
+                                detalles</a>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-img mx-auto">
+                            <img class="rounded-circle w-100 h-100 bg-light p-3" src="../static/img/cartagena.jpg"
+                                style="object-fit: cover;">
+                        </div>
+                        <div class=" content position-relative text-center bg-light rounded p-4 pb-5"
+                            style="margin-top: -75px;">
+                            <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Cartagena 2x1</h5>
+                            <p>
+                                Obten acceso incluido a los lugares más emblemáticos y conocidos de la ciudad.
+                            </p>
+                            <a href="#" class="border-bottom border-secondary text-decoration-none text-secondary">Más
+                                detalles</a>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-img mx-auto">
+                            <img class="rounded-circle w-100 h-100 bg-light p-3" src="../static/img/cali.jpg"
+                                style="object-fit: cover;">
+                        </div>
+                        <div class="content position-relative text-center bg-light rounded p-4 pb-5"
+                            style="margin-top: -75px;">
+                            <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Cali</h5>
+                            <p>¡Cali te espera con su alegría! Descubre el sabor, la salsa y los paisajes en tu próxima
+                                aventura.
+                            </p>
+                            <a href="#" class="border-bottom border-secondary text-decoration-none text-secondary">Más
+                                detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Principales ofertas End -->
+
+<!-- Principales Destinos -->
 <div class="container-fluid my-5 py-5 px-0">
     <div class="row justify-content-center m-0">
         <div class="col-lg-5">
             <h1 class="section-title position-relative text-center mb-5">
-                Nuestros principales destinos
+                Nuestros Principales Destinos
             </h1>
         </div>
     </div>
@@ -19,10 +98,8 @@
             <div class="position-relative overflow-hidden">
                 <img class="img-fluid w-100" src="../static/img/san_andresjpeg.jpeg" alt="">
                 <a class="portfolio-btn container-main-offer" href="#">
-                    <!-- <i class="fa fa-plus text-primary" style="font-size: 60px;"></i> -->
                     <div class="main-offer">
                         <h2>San Andres</h2>
-                        <p>600.000$</p>
                         <p>(Ver Oferta)</p>
                     </div>
                 </a>
@@ -32,10 +109,8 @@
             <div class="position-relative overflow-hidden">
                 <img class="img-fluid w-100" src="../static/img/cali.jpg" alt="">
                 <a class="portfolio-btn container-main-offer" href="#">
-                    <!-- <i class="fa fa-plus text-primary" style="font-size: 60px;"></i> -->
                     <div class="main-offer">
                         <h2>Cali</h2>
-                        <p>200.000$</p>
                         <p>(Ver Oferta)</p>
                     </div>
                 </a>
@@ -45,10 +120,8 @@
             <div class="position-relative overflow-hidden">
                 <img class="img-fluid w-100" src="../static/img/cartagena.jpg" alt="">
                 <a class="portfolio-btn container-main-offer" href="#">
-                    <!-- <i class="fa fa-plus text-primary" style="font-size: 60px;"></i> -->
                     <div class="main-offer">
                         <h2>Cartagena</h2>
-                        <p>300.000$</p>
                         <p>(Ver Oferta)</p>
                     </div>
                 </a>
@@ -58,10 +131,8 @@
             <div class="position-relative overflow-hidden">
                 <img class="img-fluid w-100" src="../static/img/medellin.avif" alt="">
                 <a class="portfolio-btn container-main-offer" href="#">
-                    <!-- <i class="fa fa-plus text-primary" style="font-size: 60px;"></i> -->
                     <div class="main-offer">
                         <h2>Medellín</h2>
-                        <p>350.000$</p>
                         <p>(Ver Oferta)</p>
                     </div>
                 </a>
@@ -71,10 +142,8 @@
             <div class="position-relative overflow-hidden">
                 <img class="img-fluid w-100" src="../static/img/santa_marta.jpg" alt="">
                 <a class="portfolio-btn container-main-offer" href="#">
-                    <!-- <i class="fa fa-plus text-primary" style="font-size: 60px;"></i> -->
                     <div class="main-offer">
                         <h2>Santa Marta</h2>
-                        <p>560.500$</p>
                         <p>(Ver Oferta)</p>
                     </div>
                 </a>
@@ -84,10 +153,8 @@
             <div class="position-relative overflow-hidden">
                 <img class="img-fluid w-100" src="../static/img/guarija.jpeg" alt="">
                 <a class="portfolio-btn container-main-offer" href="#">
-                    <!-- <i class="fa fa-plus text-primary" style="font-size: 60px;"></i> -->
                     <div class="main-offer">
                         <h2>La Guarija</h2>
-                        <p>695.000$</p>
                         <p>(Ver Oferta)</p>
                     </div>
                 </a>
@@ -95,5 +162,5 @@
         </div>
     </div>
 </div>
-<!-- Portfolio End -->
+<!-- Principales End -->
 {% endblock %}

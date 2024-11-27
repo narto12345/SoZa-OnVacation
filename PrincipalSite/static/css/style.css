@@ -11222,7 +11222,7 @@ h6,
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #F195B2;
+  color: var(--primary);
   background: #FFFFFF;
   border-radius: 60px;
   font-size: 30px;

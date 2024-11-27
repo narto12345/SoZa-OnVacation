@@ -13,3 +13,8 @@ p {
     color: var(--primary);
     font-weight: bold;
 }
+
+.service-item .content {
+    /* background-color: red;
+    height: 344px; */
+}
