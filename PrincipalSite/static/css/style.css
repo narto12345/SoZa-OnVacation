@@ -26,7 +26,7 @@
   --dark: #333333;
   --btn-hover: #17a2b8;
   --btn-contact: #c9a3d4;
-  --text-btn: #495057;
+  --text-btn-2: #495057;
   --transparent: #ffffff96;
   --text-btn:white;
   --breakpoint-xs: 0;
@@ -11272,7 +11272,7 @@ h6,
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #FFFFFF;
+  background: var(--transparent);
   text-decoration: none;
   opacity: 0;
   transition: .5s;
