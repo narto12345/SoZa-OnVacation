@@ -49,19 +49,19 @@
                 <div
                     class="col-md-6 d-flex justify-content-center justify-content-lg-end align-items-center principal-menu">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-white px-3" href="">
+                        <a class="text-white px-3" href="#">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a class="text-white px-3" href="">
+                        <a class="text-white px-3" href="#">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a class="text-white px-3" href="">
+                        <a class="text-white px-3" href="#">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a class="text-white px-3" href="">
+                        <a class="text-white px-3" href="#">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a class="text-white pl-3" href="">
+                        <a class="text-white pl-3" href="#">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -76,7 +76,7 @@
     <div class="container-fluid position-relative nav-bar p-0 principal-menu">
         <div class="container-lg position-relative p-0 px-lg-3 principal-menu principal-header">
             <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
-                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                <a href="{% url 'index' %}" class="navbar-brand d-block d-lg-none">
                     <h1 class="m-0 display-4 text-primary"><span class="text-secondary">i</span>TRAVEL</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -85,37 +85,33 @@
                 <div class="collapse navbar-collapse justify-content-between principal-menu-structure admin"
                     id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="index.html"
+                        <a href="{% url 'index' %}"
                             class="option-nav nav-item nav-link d-flex flex-column align-items-center nav-item-menu">
                             <i class="fas fa-home mb-2"></i> <!-- Icono de inicio -->
                             Inicio
                         </a>
-                        <a href="about.html" class="option-nav nav-item nav-link d-flex flex-column align-items-center">
+                        <a href="#" class="option-nav nav-item nav-link d-flex flex-column align-items-center">
                             <i class="fas fa-plane mb-2"></i> <!-- Icono de oferta -->
                             Ofertas
                         </a>
-                        <a href="product.html"
-                            class="option-nav nav-item nav-link d-flex flex-column align-items-center">
+                        <a href="#" class="option-nav nav-item nav-link d-flex flex-column align-items-center">
                             <i class="fas fa-gift mb-2"></i> <!-- Icono de contacto -->
                             Paquetes
                         </a>
                     </div>
-                    <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
+                    <a href="{% url 'index' %}" class="navbar-brand mx-5 d-none d-lg-block">
                         <h1 class="m-0 display-4 text-primary"><span class="text-secondary">i</span>TRAVEL</h1>
                     </a>
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="product.html"
-                            class="option-nav nav-item nav-link d-flex flex-column align-items-center">
+                        <a href="#" class="option-nav nav-item nav-link d-flex flex-column align-items-center">
                             <i class="fas fa-hotel mb-2"></i> <!-- Icono de contacto -->
                             Alojamientos
                         </a>
-                        <a href="gallery.html"
-                            class="option-nav nav-item nav-link d-flex flex-column align-items-center">
+                        <a href="#" class="option-nav nav-item nav-link d-flex flex-column align-items-center">
                             <i class="fas fa-umbrella-beach mb-2"></i> <!-- Icono de sobre nosotros -->
                             Actividades
                         </a>
-                        <a href="gallery.html"
-                            class="option-nav nav-item nav-link d-flex flex-column align-items-center">
+                        <a href="#" class="option-nav nav-item nav-link d-flex flex-column align-items-center">
                             <i class="fas fa-phone mb-2"></i> <!-- Icono de sobre nosotros -->
                             Contáctanos
                         </a>
@@ -158,7 +154,7 @@
         <div class="container text-center py-5">
             <div class="row">
                 <div class="col-12 mb-4">
-                    <a href="index.html" class="navbar-brand m-0">
+                    <a href="{% url 'index' %}" class="navbar-brand m-0">
                         <h1 class="m-0 mt-n2 display-4 text-primary"><span class="text-secondary">i</span>TRAVEL</h1>
                     </a>
                 </div>
@@ -172,13 +168,13 @@
                     <div class="row">
                         <div class="col-sm-6 text-center text-sm-right border-right mb-3 mb-sm-0">
                             <h5 class="font-weight-bold mb-2">Contáctenos</h5>
-                            <p class="mb-2">123 Street, New York, USA</p>
-                            <p class="mb-0">+012 345 67890</p>
+                            <p class="mb-2">123 Calle, Fusagasugá, COL</p>
+                            <p class="mb-0">+057 345 67890</p>
                         </div>
                         <div class="col-sm-6 text-center text-sm-left">
                             <h5 class="font-weight-bold mb-2">Horario de atención</h5>
                             <p class="mb-2">Lun – Sab, 8AM – 5PM</p>
-                            <p class="mb-0">Domigos: Cerrado</p>
+                            <p class="mb-0"><a href="{% url 'login' %}">Panel administrativo</a></p>
                         </div>
                     </div>
                 </div>

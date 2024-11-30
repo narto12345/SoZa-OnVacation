@@ -16,9 +16,9 @@ dropdownButton.addEventListener("click", () => {
 });
 
 // Opcional: Cerrar el dropdown si haces clic fuera
-// document.addEventListener("click", (event) => {
-//   if (!event.target.closest(".dropdown")) {
-//     dropdownContent.style.opacity = "0";
-//     dropdownContent.style.transform = "scaleY(0)";
-//   }
-// });
+document.addEventListener("click", (event) => {
+  if (!event.target.closest("#dropdown-button")) {
+    dropdownContent.style.opacity = "0";
+    dropdownContent.style.transform = "scaleY(0)";
+  }
+});
