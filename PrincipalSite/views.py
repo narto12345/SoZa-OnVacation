@@ -5,3 +5,6 @@ from django.http import HttpResponse
 def InitialPage (request):
     probando= "Finjamos que vengo de la bd"
     return render(request,'index.html', {'bd': probando})
+
+def Login (request):
+    return render (request,'login.html')
