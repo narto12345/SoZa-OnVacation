@@ -82,19 +82,20 @@
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-between principal-menu-structure"
+                <div class="collapse navbar-collapse justify-content-between principal-menu-structure admin"
                     id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.html"
-                            class="nav-item nav-link d-flex flex-column align-items-center nav-item-menu">
+                            class="option-nav nav-item nav-link d-flex flex-column align-items-center nav-item-menu">
                             <i class="fas fa-home mb-2"></i> <!-- Icono de inicio -->
                             Inicio
                         </a>
-                        <a href="about.html" class="nav-item nav-link d-flex flex-column align-items-center">
+                        <a href="about.html" class="option-nav nav-item nav-link d-flex flex-column align-items-center">
                             <i class="fas fa-plane mb-2"></i> <!-- Icono de oferta -->
                             Ofertas
                         </a>
-                        <a href="product.html" class="nav-item nav-link d-flex flex-column align-items-center">
+                        <a href="product.html"
+                            class="option-nav nav-item nav-link d-flex flex-column align-items-center">
                             <i class="fas fa-gift mb-2"></i> <!-- Icono de contacto -->
                             Paquetes
                         </a>
@@ -103,18 +104,38 @@
                         <h1 class="m-0 display-4 text-primary"><span class="text-secondary">i</span>TRAVEL</h1>
                     </a>
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="product.html" class="nav-item nav-link d-flex flex-column align-items-center">
+                        <a href="product.html"
+                            class="option-nav nav-item nav-link d-flex flex-column align-items-center">
                             <i class="fas fa-hotel mb-2"></i> <!-- Icono de contacto -->
                             Alojamientos
                         </a>
-                        <a href="gallery.html" class="nav-item nav-link d-flex flex-column align-items-center">
+                        <a href="gallery.html"
+                            class="option-nav nav-item nav-link d-flex flex-column align-items-center">
                             <i class="fas fa-umbrella-beach mb-2"></i> <!-- Icono de sobre nosotros -->
                             Actividades
                         </a>
-                        <a href="gallery.html" class="nav-item nav-link d-flex flex-column align-items-center">
+                        <a href="gallery.html"
+                            class="option-nav nav-item nav-link d-flex flex-column align-items-center">
                             <i class="fas fa-phone mb-2"></i> <!-- Icono de sobre nosotros -->
                             Contáctanos
                         </a>
+                        <div class="dropdown-admin">
+                            <span id="dropdown-button" href="#"
+                                class="option-nav nav-item nav-link d-flex flex-column align-items-center">
+                                <i class="fas fa-cogs mb-2"></i> <!-- Icono de sobre nosotros -->
+                                Administracion
+                            </span>
+                            <div id="dropdown-content" class="dropdown-content">
+                                <a href="#" class="nav-item nav-link d-flex flex-row align-items-center">
+                                    <i class="fas fa-tag mb-2"></i> <!-- Icono de sobre nosotros -->
+                                    <p>Ofertas</p>
+                                </a>
+                                <a href="#" class="nav-item nav-link d-flex flex-row align-items-center">
+                                    <i class="fas fa-map-marker-alt mb-2"></i> <!-- Icono de sobre nosotros -->
+                                    <p>Contacto</p>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -197,6 +218,7 @@
 
     <!-- Template Javascript -->
     <script src="../static/js/main.js"></script>
+    <script src="../static/js/base.js"></script>
     {% endblock %}
 </body>
 

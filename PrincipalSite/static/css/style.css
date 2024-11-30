@@ -11061,7 +11061,7 @@ h6,
 }
 
 .navbar-light .navbar-nav .nav-link {
-  padding: 30px 15px;
+  padding: 0px 15px;
   color: #333333;
   font-size: 13px;
   font-weight: 500;
@@ -11420,6 +11420,11 @@ h6,
   #navbarCollapse.show {
     height: 405px;
   }
+
+  /* ----------------------------------------------------- */
+  #navbarCollapse.show.admin {
+    height: 475px;
+  }
 }
 
 /* Estilos para el botón flotante de WhatsApp */
@@ -11461,5 +11466,68 @@ h6,
   .whatsapp-button img {
     width: 30px;
     height: 30px;
+  }
+}
+
+/* Estilos para opción de admin (dropdown)*/
+.dropdown-content {
+  position: absolute;
+  top: 55%;
+  background-color: #fff;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  transform: scaleY(0);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: top;
+  width: 171px;
+  height: 155px;
+  z-index: -1000;
+}
+
+.dropdown-content a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  border-radius: 20px;
+}
+
+.dropdown-content a:first-child {
+  margin-top: 30px;
+}
+
+.dropdown-content a:hover {
+  /* background-color: #f0f0f0; */
+}
+
+#dropdown-content a {
+  padding: 20px 10px 0px 10px;
+}
+
+#dropdown-content a i,
+p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (max-width: 991px) {
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+    height: 130px;
+  }
+
+  .dropdown-content a {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dropdown-content a:first-child {
+    margin-top: 0;
   }
 }
