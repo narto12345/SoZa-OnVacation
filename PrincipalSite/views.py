@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-# Create your views here.
-def InitialPage (request):
-    probando= "Finjamos que vengo de la bd"
-    return render(request,'index.html', {'bd': probando})
 
-def Login (request):
-    return render (request,'login.html')
+def initial_page(request):
+    return render(request, "index.html")
 
-def Contact (request):
-    return render(request,'contact.html')
+
+def login(request):
+    return render(request, "login.html")
+
+
+def contact(request):
+    return render(request, "contact.html")
