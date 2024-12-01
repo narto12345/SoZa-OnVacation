@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 0;  
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 10; 
+    z-index: 10;
     background-image: url(../img/background-login.avif);
     background-size: 100% 100%;
     background-position: center;
@@ -21,7 +21,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
-    z-index: 20; 
+    z-index: 0;
     margin-top: 120px;
     margin-bottom: 100px;
 }
@@ -50,5 +50,3 @@
     border: 1px solid var(--light);
     border-radius: 4px;
 }
-
-

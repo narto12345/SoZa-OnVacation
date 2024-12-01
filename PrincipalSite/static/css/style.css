@@ -32,7 +32,7 @@
   --text-tertiary: #f4d03f;
   --btn-contact: #f4d03f;
   --text-btn-2: #495057;
-  --transparent: #ffffff96;
+  --transparent: #ffffffd8;
   --text-btn: white;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -2889,7 +2889,7 @@ fieldset:disabled a.btn {
   color: #212529;
   background-color: var(--text-secondary);
   border-color: var(--text-secondary);
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .btn-secondary.disabled,
@@ -2910,7 +2910,7 @@ fieldset:disabled a.btn {
 .btn-secondary:not(:disabled):not(.disabled):active:focus,
 .btn-secondary:not(:disabled):not(.disabled).active:focus,
 .show>.btn-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .btn-success {
@@ -2971,7 +2971,7 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #138496;
   border-color: #117a8b;
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .btn-info.disabled,
@@ -2992,7 +2992,7 @@ fieldset:disabled a.btn {
 .btn-info:not(:disabled):not(.disabled):active:focus,
 .btn-info:not(:disabled):not(.disabled).active:focus,
 .show>.btn-info.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .btn-warning {
@@ -3208,7 +3208,7 @@ fieldset:disabled a.btn {
 
 .btn-outline-secondary:focus,
 .btn-outline-secondary.focus {
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .btn-outline-secondary.disabled,
@@ -3230,7 +3230,7 @@ fieldset:disabled a.btn {
 .btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
 .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
 .show>.btn-outline-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .btn-outline-success {
@@ -3282,7 +3282,7 @@ fieldset:disabled a.btn {
 
 .btn-outline-info:focus,
 .btn-outline-info.focus {
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .btn-outline-info.disabled,
@@ -3304,7 +3304,7 @@ fieldset:disabled a.btn {
 .btn-outline-info:not(:disabled):not(.disabled):active:focus,
 .btn-outline-info:not(:disabled):not(.disabled).active:focus,
 .show>.btn-outline-info.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .btn-outline-warning {
@@ -5473,7 +5473,7 @@ a.badge-secondary:focus {
 a.badge-secondary:focus,
 a.badge-secondary.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .badge-success {
@@ -5507,7 +5507,7 @@ a.badge-info:focus {
 a.badge-info:focus,
 a.badge-info.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .badge-warning {
@@ -5524,7 +5524,7 @@ a.badge-warning:focus {
 a.badge-warning:focus,
 a.badge-warning.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .badge-danger {
@@ -5541,7 +5541,7 @@ a.badge-danger:focus {
 a.badge-danger:focus,
 a.badge-danger.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .badge-light {
@@ -5558,7 +5558,7 @@ a.badge-light:focus {
 a.badge-light:focus,
 a.badge-light.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .badge-dark {
@@ -5575,7 +5575,7 @@ a.badge-dark:focus {
 a.badge-dark:focus,
 a.badge-dark.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem var(--text-secondary);
+  /* box-shadow: 0 0 0 0.2rem var(--text-secondary); */
 }
 
 .jumbotron {
@@ -6207,7 +6207,7 @@ a.close.disabled {
   background-color: rgba(255, 255, 255, 0.85);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0.25rem 0.75rem var(--text-secondary);
+  /* box-shadow: 0 0.25rem 0.75rem var(--text-secondary); */
   opacity: 0;
   border-radius: 0.25rem;
 }
@@ -8400,15 +8400,15 @@ button.bg-dark:focus {
 }
 
 .shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem var(--text-secondary) !important;
+  /* box-shadow: 0 0.125rem 0.25rem var(--text-secondary) !important; */
 }
 
 .shadow {
-  box-shadow: 0 0.5rem 1rem var(--text-secondary) !important;
+  /* box-shadow: 0 0.5rem 1rem var(--text-secondary) !important; */
 }
 
 .shadow-lg {
-  box-shadow: 0 1rem 3rem var(--text-secondary) !important;
+  /* box-shadow: 0 1rem 3rem var(--text-secondary) !important; */
 }
 
 .shadow-none {
@@ -11452,7 +11452,7 @@ h6,
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 6px var(--text-secondary);
+  /* box-shadow: 0 4px 6px var(--text-secondary); */
   z-index: 1000;
   text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -11466,7 +11466,7 @@ h6,
 
 .whatsapp-button:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 10px var(--text-secondary);
+  /* box-shadow: 0 6px 10px var(--text-secondary); */
 }
 
 /* Asegura que el botón no interfiera con pantallas pequeñas */

@@ -1,28 +1,29 @@
-.contact-form-bg{
+.contact-form-bg {
     background-color: rgba(247, 247, 247, 0.678);
 }
+
 .btn-primary {
     color: #212529;
     background-color: var(--primary);
     border-color: var(--primary);
-  }
-  
-  .btn-primary:hover {
+}
+
+.btn-primary:hover {
     color: #212529;
     background-color: var(--btn-hover);
-    border-color: var( --btn-hover);
-  }
+    border-color: var(--btn-hover);
+}
 
 .card {
     border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     transition: transform 0.3s ease;
     margin-bottom: 60px;
 }
 
 .card:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-5px);
 }
 
 .card-body {
@@ -38,13 +39,16 @@
 .card-text {
     font-size: 1.2rem;
     color: #333;
+    -webkit-text-fill-color: #333;
 }
+
 .card-form {
     border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
     border-radius: 8px;
     transition: transform 0.3s ease;
 }
+
 .card-form:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-5px);
 }

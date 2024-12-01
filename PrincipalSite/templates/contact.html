@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% block content %}
-  <!-- Header Start -->
-  <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
+<!-- Header Start -->
+<div class="jumbotron jumbotron-fluid page-header">
     <div class="container text-center py-5">
         <h1 class="text-white display-3 mt-lg-5">Contáctanos</h1>
         <div class="d-inline-flex align-items-center text-white">
@@ -17,11 +17,11 @@
             <p class="m-0 text-white">Contacto</p>
         </div>
     </div>
-  </div>
-  <!-- Header End -->
+</div>
+<!-- Header End -->
 
-  <!-- Contact Start -->
-  <div class="container-fluid py-5">
+<!-- Contact Start -->
+<div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -53,32 +53,39 @@
                             <h5 class="card-title">Envíanos un mail con tus dudas o solicitudes</h5>
                         </div>
                         <div class="form-row">
-                            
+
                             <div class="col-sm-6 control-group">
-                                <input type="text" class="form-control p-4" id="name" placeholder="Escribe aquí tú nombre" required="required" data-validation-required-message="Please enter your name" />
+                                <input type="text" class="form-control p-4" id="name"
+                                    placeholder="Escribe aquí tú nombre" required="required"
+                                    data-validation-required-message="Please enter your name" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="col-sm-6 control-group">
-                                <input type="email" class="form-control p-4" id="email" placeholder="Tú email" required="required" data-validation-required-message="Please enter your email" />
+                                <input type="email" class="form-control p-4" id="email" placeholder="Tú email"
+                                    required="required" data-validation-required-message="Please enter your email" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="control-group">
-                            <input type="text" class="form-control p-4" id="subject" placeholder="Asunto" required="required" data-validation-required-message="Please enter a subject" />
+                            <input type="text" class="form-control p-4" id="subject" placeholder="Asunto"
+                                required="required" data-validation-required-message="Please enter a subject" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <textarea class="form-control p-4" rows="6" id="message" placeholder="Mensaje" required="required" data-validation-required-message="Please enter your message"></textarea>
+                            <textarea class="form-control p-4" rows="6" id="message" placeholder="Mensaje"
+                                required="required"
+                                data-validation-required-message="Please enter your message"></textarea>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div>
-                            <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Enviar mensaje</button>
+                            <button class="btn btn-primary btn-block py-3 px-5" type="submit"
+                                id="sendMessageButton">Enviar mensaje</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-  </div>
-  <!-- Contact End -->
+</div>
+<!-- Contact End -->
 {% endblock %}
