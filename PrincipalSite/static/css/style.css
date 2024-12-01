@@ -2824,14 +2824,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #212529;
-  background-color: #4b0077;
-  border-color: #4b0077;
+  background-color: var(--primary);
+  border-color: var(--primary);
 }
 
 .btn-primary:hover {
   color: #212529;
-  background-color: #ed7399;
-  border-color: #eb6891;
+  background-color: var(--btn-hover);
+  border-color: var( --btn-hover);
 }
 
 .btn-primary:focus,
@@ -11081,7 +11081,7 @@ h6,
 
 
 .page-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/header.jpeg), no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/cartagena.jpg), no-repeat center center;
   background-size: cover;
 }
 

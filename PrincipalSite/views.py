@@ -8,3 +8,6 @@ def InitialPage (request):
 
 def Login (request):
     return render (request,'login.html')
+
+def Contact (request):
+    return render(request,'contact.html')

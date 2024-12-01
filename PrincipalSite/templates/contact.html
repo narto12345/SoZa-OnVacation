@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+  <!-- Header Start -->
+  <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3 mt-lg-5">Contáctanos</h1>
+        <div class="d-inline-flex align-items-center text-white">
+            <p class="m-0"><a class="text-white" href="">Inicio</a></p>
+            <i class="fa fa-circle px-3"></i>
+            <p class="m-0 text-white">Contacto</p>
+        </div>
+    </div>
+  </div>
+  <!-- Header End -->
+
+  <!-- Contact Start -->
+  <div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <h1 class="section-title position-relative text-center mb-5">¿Deseas más información? Escríbenos</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- Columna izquierda para los teléfonos :) -->
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Teléfono 1</h5>
+                        <p class="card-text">+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Teléfono 2</h5>
+                        <p class="card-text">+1 (555) 987-6543</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Columna derecha para el formulario de contacto -->
+            <div class="">
+                <div class="card-form form rounded p-5">
+                    <div id="success"></div>
+                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <div class="">
+                            <h5 class="card-title">Envíanos un mail con tus dudas o solicitudes</h5>
+                        </div>
+                        <div class="form-row">
+                            
+                            <div class="col-sm-6 control-group">
+                                <input type="text" class="form-control p-4" id="name" placeholder="Escribe aquí tú nombre" required="required" data-validation-required-message="Please enter your name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <input type="email" class="form-control p-4" id="email" placeholder="Tú email" required="required" data-validation-required-message="Please enter your email" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control p-4" id="subject" placeholder="Asunto" required="required" data-validation-required-message="Please enter a subject" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <textarea class="form-control p-4" rows="6" id="message" placeholder="Mensaje" required="required" data-validation-required-message="Please enter your message"></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Enviar mensaje</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Contact End -->
+{% endblock %}
