@@ -8,11 +8,6 @@
   background-color: var(--transparent);
 }
 
-.main-destination h2,
-p {
-  color: var(--primary);
-}
-
 .main-offer h5 {
   color: var(--primary);
   font-weight: bold;
