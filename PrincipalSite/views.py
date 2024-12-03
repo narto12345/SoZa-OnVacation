@@ -19,3 +19,6 @@ def offers(request):
 
 def trazability(request):
     return render(request, "trazability.html")
+
+def create_offer(request):
+    return render(request, "form_offer.html")

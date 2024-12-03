@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/create_offer.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Header Start -->
+<div class="jumbotron jumbotron-fluid page-header">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3 mt-lg-5">Crear Oferta</h1>
+        <div class="d-inline-flex align-items-center text-white">
+            <p class="m-0"><a class="text-white" href="">Inicio</a></p>
+            <i class="fa fa-circle px-3"></i>
+            <p class="m-0 text-white">Creación Oferta</p>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+<div class="contact-form-bg">
+    <div class="card card-form mx-auto">
+        <div class="card-body">
+            <h2 class="card-title">Crear Oferta</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="nombreOferta" class="form-label">Nombre Oferta</label>
+                    <input type="text" class="form-control" id="nombreOferta" required>
+                </div>
+                <div class="mb-3">
+                    <label for="detalle" class="form-label">Detalle</label>
+                    <input type="text" class="form-control" id="detalle" required>
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descripcion" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="tipoOferta" class="form-label">Tipo Oferta</label>
+                    <select class="form-select" id="tipoOferta" required>
+                        <option value="">Seleccione...</option>
+                        <option value="descuento">Slider</option>
+                        <option value="promocion">Principales Ofertas</option>
+                        <option value="nuevo_producto">Oferta General</option>
+                    </select>
+                </div>
+                <!-- Zona de arrastrar y soltar para la imagen principal -->
+                <!-- Imagen principal -->
+                <div class="mb-3">
+                    <label for="imagenPrincipal" class="form-label">Cargar Imagen Principal</label>
+                    <div id="drop-zone-principal" class="drop-zone">
+                        <input type="file" class="form-control" id="imagenPrincipal" accept="image/*" required>
+                        <span>Arrastra y suelta tu imagen aquí o haz clic para seleccionar</span>
+                    </div>
+                    <!-- Vista previa de la imagen principal -->
+                    <div id="preview-container-principal" class="mt-2">
+                        <img id="imagePreviewPrincipal" src="" alt="Vista previa imagen principal" class="img-fluid"
+                            style="display:none; width: 100%; max-width: 300px;">
+                    </div>
+                </div>
+
+                <!-- Carrusel de imágenes -->
+                <div class="mb-3">
+                    <label for="imagenesCarrusel" class="form-label">Cargar Carrusel de Imágenes (máximo 3)</label>
+                    <div id="drop-zone-carrusel" class="drop-zone">
+                        <input type="file" class="form-control" id="imagenesCarrusel" accept="image/*" multiple>
+                        <span>Arrastra y suelta tus imágenes aquí o haz clic para seleccionar</span>
+                    </div>
+                    <!-- Vista previa de las imágenes del carrusel -->
+                    <div id="preview-container-carrusel" class="mt-2">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
