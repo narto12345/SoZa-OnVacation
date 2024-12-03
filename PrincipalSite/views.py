@@ -12,3 +12,7 @@ def login(request):
 
 def contact(request):
     return render(request, "contact.html")
+
+
+def offers(request):
+    return render(request, "offers.html")
