@@ -10,6 +10,12 @@ Proyecto que contempla una página web tradicional, manejando también un módul
 
 Una vez clonado o descargado el repositorio, deberá entrar al directorio raíz del proyecto y ejecutar los siguientes comandos:
 
+Opcional. Instalar entorno virtual en Windows:
+
+```bash
+pip install virtualenv
+```
+
 1. Crear entorno virtual en Windows:
 
 ```bash
