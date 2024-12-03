@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/trazability.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Header Start -->
+<div class="jumbotron jumbotron-fluid page-header">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3 mt-lg-5">Trazabilidad-Mails</h1>
+        <div class="d-inline-flex align-items-center text-white">
+            <p class="m-0"><a class="text-white" href="">Inicio</a></p>
+            <i class="fa fa-circle px-3"></i>
+            <p class="m-0 text-white">Trazabilidad</p>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+<!-- Trazabilidad Start -->
+<!-- Filtro de fechas -->
+<div class="main-container">
+    <div class="filter-container">
+        <label for="start-date">Fecha de inicio:</label>
+        <input type="date" id="start-date" name="start-date">
+
+        <label for="end-date">Fecha de fin:</label>
+        <input type="date" id="end-date" name="end-date">
+
+        <button class="filter-btn">Filtrar</button>
+    </div>
+
+    <!-- Tabla -->
+    <table class="message-table">
+        <thead>
+            <tr>
+                <th>Nombre Remitente</th>
+                <th>Correo</th>
+                <th>Asunto</th>
+                <th>Mensaje</th>
+                <th>Fecha de Envío</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Juan Pérez</td>
+                <td>juan.perez@example.com</td>
+                <td>Consulta de producto</td>
+                <td>Me gustaría saber más sobre el viaje a Cartagena.</td>
+                <td>01/12/2024</td>
+                <td><button class="btn-detail"><span>🔍</span> Más detalle</button></td>
+            </tr>
+            <tr>
+                <td>Ana Gómez</td>
+                <td>ana.gomez@example.com</td>
+                <td>Problema con información oferta</td>
+                <td>No he recibido mi oferta aún, por favor revisen.</td>
+                <td>02/12/2024</td>
+                <td><button class="btn-detail"><span>🔍</span> Más detalle</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <!-- Trazabilidad End -->
+    {% endblock %}

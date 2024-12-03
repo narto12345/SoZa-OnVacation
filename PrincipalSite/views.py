@@ -16,3 +16,6 @@ def contact(request):
 
 def offers(request):
     return render(request, "offers.html")
+
+def trazability(request):
+    return render(request, "trazability.html")

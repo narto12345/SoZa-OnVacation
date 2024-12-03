@@ -17,6 +17,16 @@
                         <h4 class="text-white text-uppercase mb-md-3">San Andres</h4>
                         <h1 class="display-3 text-white mb-md-4">Ven y disfruta de su diversidad</h1>
                         <a href="" class="btn btn-general py-md-3 px-md-5 mt-2">Más detalles</a>
+                        <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                            <div class="btn btn-secondary px-0" style="width: 45px; height: 45px;">
+                                <span class="carousel-control-prev-icon mb-n1"></span>
+                            </div>
+                        </a>
+                        <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                            <div class="btn btn-secondary px-0" style="width: 45px; height: 45px;">
+                                <span class="carousel-control-next-icon mb-n1"></span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -129,7 +139,42 @@
     </div>
 </div>
 <!-- Principales ofertas End -->
+<!-- Tarjetas de contacto-Sugeridas por el cliente-->
+<div class="card-container">
+    <div class="card-planning">
+        <div class="card-image">
+            <img src="../static/img/icons/viaje.png" alt="Imagen de compra de viaje">
+        </div>
+        <div class="card-content">
+            <h3>Compra tu viaje</h3>
+            <p>¡Encuentra las mejores ofertas y reserva ahora!</p>
+            <a href="{% url 'offers' %}">Comprar ahora</a>
+        </div>
+    </div>
+    <div class="card-planning">
+        <div class="card-image">
+            <img src="../static/img/icons/call.png" alt="Imagen de planificación de viaje">
+        </div>
+        <div class="card-content">
+            <h3>Planea tu viaje</h3>
+            <p>Organiza todo lo que necesitas para unas vacaciones perfectas.</p>
+            <a href="{% url 'offers' %}">Planifica tu viaje</a>
+        </div>
+    </div>
+    <div class="card-planning">
+        <div class="card-image">
+            <img src="../static/img/icons/asesor.png" alt="Imagen de compra de viaje">
+        </div>
+        <div class="card-content">
+            <h3>Asesórate</h3>
+            <p>¡Contamos con los mejores asesores para resolver tus dudas!</p>
+            <a href="{% url 'contact' %}">Contáctanos</a>
+        </div>
+    </div>
+</div>
 
+
+ <!-- Tarjetas de contacto-Sugeridas por el cliente End-->
 <!-- Principales Destinos -->
 <div class="container-fluid my-5 py-5 px-0">
     <div class="row justify-content-center m-0">
