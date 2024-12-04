@@ -218,3 +218,49 @@ z-index: -4;
   background-color: var(--primary);
   color: var(--light);
 }
+
+/* Sección de imágenes fijas con efecto dinámico */
+.image-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Permite que las imágenes se acomoden en filas si es necesario */
+  margin: 20px 0;
+  padding: 20px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.image-card {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 10px;
+}
+
+/* Efecto al pasar el cursor */
+.image-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responde bien en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .image-cards {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .image-card {
+      width: 90%; /* Reduzca el tamaño de las imágenes en pantallas pequeñas */
+  }
+}
