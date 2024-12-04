@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/offer-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid page-header">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3 mt-lg-5">Nuestras Ofertas</h1>
+        <div class="d-inline-flex align-items-center text-white">
+        </div>
+    </div>
+</div>
+
+<!-- Detail Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="mb-5">
+                    <div class="d-flex mb-2">
+                        <span class="text-secondary text-uppercase font-weight-medium" href="">Playa</span>
+                        <span class="text-primary px-2">|</span>
+                        <span class="text-secondary text-uppercase font-weight-medium" href="">Caribe</span>
+                        <span class="text-primary px-2">|</span>
+                        <span class="text-secondary text-uppercase font-weight-medium" href="">Vacaciones</span>
+                    </div>
+                    <span class="price py-2" href="#">$790.000</span>
+                    <h1 class="section-title mb-3" style="font-size: 35px;">San Andrés, "El jardín de la reina"
+
+                    </h1>
+                    <div class="options">
+                        <a class="btn btn-sm btn-primary py-2" href="#">Realizar Cotización</a>
+                        <a class="btn btn-sm btn-primary py-2" href="#">Más información</a>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <img class="img-fluid rounded w-100 mb-4" src="{% static 'img/cartagena.jpg' %}" alt="Image">
+                    <p>San Andrés, en el archipiélago de San Andrés, Providencia y Santa Catalina, tiene los apodos
+                        de "El jardín de la reina" y "La del mar de 7 colores".
+                        El archipiélago de San Andrés, Providencia y Santa Catalina es uno de los destinos
+                        turísticos más populares de Colombia. Se encuentra en el mar Caribe, frente a la costa de
+                        Nicaragua, y cuenta con el 91% de los arrecifes de coral del país. Las aguas del
+                        archipiélago son conocidas como el Mar de los Siete Colores por su belleza natural.</p>
+                    <p>El archipiélago de San Andrés, Providencia y Santa Catalina es uno de los destinos insulares
+                        más populares de Colombia. Situado frente a la costa de Nicaragua, en el mar Caribe, este
+                        archipiélago alberga el 91% de los arrecifes de coral de Colombia y sus aguas reciben el
+                        apodo de Mar de los Siete Colores.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-5 mt-lg-0">
+                <h3 class="mb-4 section-title">Conoce Más</h3>
+                <div class="mb-3">
+                    <img src="{% static 'img/cali.jpg' %}" alt="" class="img-fluid rounded">
+                </div>
+                <div class="mb-3">
+                    <img src="{% static 'img/guarija.jpeg' %}" alt="" class="img-fluid rounded">
+                </div>
+                <div class="mb-3">
+                    <div class="mb-5">
+                        <img src="{% static 'img/medellin.avif' %}" alt="" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Detail End -->
+    {% endblock %}
