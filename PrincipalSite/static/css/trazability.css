@@ -1,11 +1,17 @@
 .main-container {
-    max-width: 1200px;  /* Ancho máximo para el contenedor */
-    margin: 0 auto;     /* Centra el contenedor en la página */
-    padding: 20px;      /* Espaciado interior para no estar pegado al borde */
+    max-width: 1200px;
+    /* Ancho máximo para el contenedor */
+    margin: 0 auto;
+    /* Centra el contenedor en la página */
+    padding: 20px;
+    /* Espaciado interior para no estar pegado al borde */
     background-color: white;
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra ligera */
 }
+
 .filter-container {
     margin-bottom: 20px;
     display: flex;
@@ -23,6 +29,12 @@
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+@media (max-width: 991px) {
+    .filter-container {
+        flex-direction: column;
+    }
 }
 
 .filter-btn {
@@ -53,7 +65,8 @@
     color: white;
 }
 
-.message-table th, .message-table td {
+.message-table th,
+.message-table td {
     padding: 12px 15px;
     text-align: left;
     border: 1px solid #ddd;
@@ -82,21 +95,38 @@
 .btn-detail:hover {
     background-color: var(--warning);
 }
-.message-table th:first-child, .message-table td:first-child {
-    border-top-left-radius: 10px; 
+
+.message-table th:first-child,
+.message-table td:first-child {
+    border-top-left-radius: 10px;
 }
-.message-table th:last-child, .message-table td:last-child {
-    border-top-right-radius: 10px; 
+
+.message-table th:last-child,
+.message-table td:last-child {
+    border-top-right-radius: 10px;
 }
 
 .message-table tr:last-child td:first-child {
-    border-bottom-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
 }
 
 .message-table tr:last-child td:last-child {
-    border-bottom-right-radius: 10px; 
+    border-bottom-right-radius: 10px;
 }
+
 .page-header {
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/sections/trazability.png), no-repeat center center;
     background-size: cover;
-  }
+}
+
+/* Tabla responsiva */
+@media (max-width: 768px) {
+    .message-table {
+        display: block;
+        /* Permite que el contenedor sea desplazable */
+        overflow-x: scroll;
+        /* Habilita el desplazamiento horizontal */
+        white-space: nowrap;
+        /* Evita que las filas se envuelvan */
+    }
+}

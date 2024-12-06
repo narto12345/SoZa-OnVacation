@@ -148,6 +148,7 @@ z-index: -4;
   /* background-color: red;
     height: 344px; */
 }
+
 /*Tarjetas sugeridas por el cliente */
 .card-container {
   display: flex;
@@ -156,13 +157,20 @@ z-index: -4;
   margin-top: 20px;
 }
 
+@media (max-width: 991px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .card-planning {
   display: flex;
   background-color: #f7f7f7;
   border-radius: 10px;
   width: 350px;
-  height: 300px;  
-  overflow: hidden;  
+  height: 300px;
+  overflow: hidden;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -173,14 +181,14 @@ z-index: -4;
 
 .card-image {
   flex-shrink: 0;
-  width: 150px; 
-  height: 100%;  
+  width: 150px;
+  height: 100%;
 }
 
 .card-image img {
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-content {
@@ -224,7 +232,8 @@ z-index: -4;
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap; /* Permite que las imágenes se acomoden en filas si es necesario */
+  flex-wrap: wrap;
+  /* Permite que las imágenes se acomoden en filas si es necesario */
   margin: 20px 0;
   padding: 20px 0;
   width: 100%;
@@ -256,11 +265,12 @@ z-index: -4;
 /* Responde bien en pantallas más pequeñas */
 @media (max-width: 768px) {
   .image-cards {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .image-card {
-      width: 90%; /* Reduzca el tamaño de las imágenes en pantallas pequeñas */
+    width: 90%;
+    /* Reduzca el tamaño de las imágenes en pantallas pequeñas */
   }
 }
