@@ -9,4 +9,5 @@ urlpatterns = [
     path("trazability/", views.trazability, name="trazability"),
     path("create_offer/", views.create_offer, name="create_offer"),
     path("offer-detail/", views.offer_detail, name="offer-detail"),
+    path("offers-admin/", views.offers_admin, name="offers_admin"),
 ]

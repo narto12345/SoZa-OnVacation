@@ -33,37 +33,35 @@
         <button class="filter-btn">Filtrar</button>
     </div>
 
-    <!-- Tabla -->
-    <table class="message-table">
-        <thead>
-            <tr>
-                <th>Nombre Remitente</th>
-                <th>Correo</th>
-                <th>Asunto</th>
-                <th>Mensaje</th>
-                <th>Fecha de Envío</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Juan Pérez</td>
-                <td>juan.perez@example.com</td>
-                <td>Consulta de producto</td>
-                <td>Me gustaría saber más sobre el viaje a Cartagena.</td>
-                <td>01/12/2024</td>
-                <td><button class="btn-detail"><span>🔍</span> Más detalle</button></td>
-            </tr>
-            <tr>
-                <td>Ana Gómez</td>
-                <td>ana.gomez@example.com</td>
-                <td>Problema con información oferta</td>
-                <td>No he recibido mi oferta aún, por favor revisen.</td>
-                <td>02/12/2024</td>
-                <td><button class="btn-detail"><span>🔍</span> Más detalle</button></td>
-            </tr>
-        </tbody>
-    </table>
+   <!-- Tabla -->
+<table class="message-table">
+    <thead>
+        <tr>
+            <th>Nombre Remitente</th>
+            <th>Correo</th>
+            <th>Asunto</th>
+            <th>Mensaje</th>
+            <th>Fecha de Envío</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contact in contacts %} <!--For para recorrer en django el modelo que se envió desde la vista-->
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.subject }}</td>
+            <td>{{ contact.message }}</td>
+            <td>{{ contact.created_at|date:"d/m/Y" }}</td> <!-- Formateamos la fecha -->
+            <td><button class="btn-detail"><span>🔍</span> Más detalle</button></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No hay mensajes disponibles.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 </div>
     <!-- Trazabilidad End -->
     {% endblock %}

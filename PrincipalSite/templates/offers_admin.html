@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/offers_admin.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Header Start -->
+<div class="jumbotron jumbotron-fluid page-header">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3 mt-lg-5">Panel de ofertas</h1>
+        <div class="d-inline-flex align-items-center text-white">
+            <p class="m-0"><a class="text-white" href="">Inicio</a></p>
+            <i class="fa fa-circle px-3"></i>
+            <p class="m-0 text-white">Panel de ofertas</p>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+<!-- Panel de ofertas Start -->
+
+   <!-- Tabla -->
+<table class="message-table">
+    <thead>
+        <tr>
+            <th>Nombre Oferta</th>
+            <th>Descripción</th>
+            <th>Detalle</th>
+            <th>Tipo de oferta</th>
+            <th>Imagen inicial</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for offer in offers %} <!--For para recorrer en django el modelo que se envió desde la vista-->
+        <tr>
+            <td>{{ offer.name }}</td>
+            <td>{{ offer.description }}</td>
+            <td>{{ offer.detail}}</td>
+            <td>{{ offer.offer_type}}</td>
+            <td>{{ offer.main_image }}</td> <!-- Formateamos la fecha -->
+            <td><button class="btn-detail"><span>🔍</span> Actualizar</button>
+                <button class="btn-detail"><span>🔍</span> Eliminar</button>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No hay ofertas disponibles.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+    <!-- Trazabilidad End -->
+    {% endblock %}

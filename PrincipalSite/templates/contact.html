@@ -48,34 +48,29 @@
             <div class="">
                 <div class="card-form form rounded p-5">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                    <form name="sentMessage" id="contactForm" method="post" novalidate="novalidate">
+                        {% csrf_token %} <!--Este es un token que necesita django para obtener la solicitud-->
                         <div class="">
                             <h5 class="card-title">Envíanos un mail con tus dudas o solicitudes</h5>
                         </div>
                         <div class="form-row">
-
                             <div class="col-sm-6 control-group">
-                                <input type="text" class="form-control p-4" id="name"
-                                    placeholder="Escribe aquí tú nombre" required="required"
-                                    data-validation-required-message="Please enter your name" />
-                                <p class="help-block text-danger"></p>
+                                {{ form.name }}
+                                <!--De aquí hacia abajo se heredan los campos de forms.py, del FormContact que se creó-->
+                                <p class="help-block text-danger">{{ form.name.errors }}</p>
                             </div>
                             <div class="col-sm-6 control-group">
-                                <input type="email" class="form-control p-4" id="email" placeholder="Tú email"
-                                    required="required" data-validation-required-message="Please enter your email" />
-                                <p class="help-block text-danger"></p>
+                                {{ form.email }}
+                                <p class="help-block text-danger">{{ form.email.errors }}</p>
                             </div>
                         </div>
                         <div class="control-group">
-                            <input type="text" class="form-control p-4" id="subject" placeholder="Asunto"
-                                required="required" data-validation-required-message="Please enter a subject" />
-                            <p class="help-block text-danger"></p>
+                            {{ form.subject }}
+                            <p class="help-block text-danger">{{ form.subject.errors }}</p>
                         </div>
                         <div class="control-group">
-                            <textarea class="form-control p-4" rows="6" id="message" placeholder="Mensaje"
-                                required="required"
-                                data-validation-required-message="Please enter your message"></textarea>
-                            <p class="help-block text-danger"></p>
+                            {{ form.message }}
+                            <p class="help-block text-danger">{{ form.message.errors }}</p>
                         </div>
                         <div>
                             <button class="btn btn-primary btn-block py-3 px-5" type="submit"
@@ -87,5 +82,30 @@
         </div>
     </div>
 </div>
+<!-- Modal para cuando se envía correctamente el form -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">¡Mensaje enviado!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                El mensaje fue enviado correctamente.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Script necesario para pasar la url donde aparecerá el modal al archivo contact.js
+    const contactUrl = "{% url 'contact' %}";
+</script>
 <!-- Contact End -->
 {% endblock %}
