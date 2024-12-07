@@ -44,6 +44,15 @@
                             Contacto directo: +432233
                         </a>
                     </div>
+                    {% if is_authenticated %}
+                    <div class="d-inline-flex align-items-center logout">
+                        <a href="/logout/" class="btn-custom text-dark d-inline-flex align-items-center">
+                            <i class="fas fa-sign-out-alt mr-2"></i> <!-- Icono de cerrar sesión -->
+                            Cerrar sesión
+                        </a>
+                    </div>
+                    {% else %}
+                    {% endif %}
                 </div>
                 <!-- Columna con los iconos de redes sociales -->
                 <div
