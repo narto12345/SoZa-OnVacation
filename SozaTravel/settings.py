@@ -15,6 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+LOGIN_URL = "/login/"  # URL para redirigir usuarios no autenticados
+LOGIN_REDIRECT_URL = "/"  # Redirigir tras iniciar sesión (opcional)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/

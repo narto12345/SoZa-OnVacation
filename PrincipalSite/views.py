@@ -6,7 +6,21 @@ from PrincipalSite.models import *
 from .forms import ContactForm
 
 ADMIN_USER = "admin"
-ADMIN_PASSWORD = "admin123"
+ADMIN_PASSWORD = "contrasena"
+
+
+def session_required(view_func):
+    """
+    Decorador para proteger vistas basadas en sesión.
+    Redirige al login si no está autenticado.
+    """
+
+    def wrapper(request, *args, **kwargs):
+        if not request.session.get("is_authenticated", False):
+            return redirect("login")
+        return view_func(request, *args, **kwargs)
+
+    return wrapper
 
 
 def initial_page(request):
@@ -70,6 +84,7 @@ def offers(request):
     return render(request, "offers.html")
 
 
+@session_required
 def trazability(request):
     contacts = (
         Contact.objects.all()
@@ -77,6 +92,7 @@ def trazability(request):
     return render(request, "trazability.html", {"contacts": contacts})
 
 
+@session_required
 def create_offer(request):
     return render(request, "form_offer.html")
 
@@ -85,6 +101,7 @@ def offer_detail(request):
     return render(request, "offer-detail.html")
 
 
+@session_required
 def offers_admin(request):
     offers_admin = Offer.objects.all()
     return render(request, "offers_admin.html", {"offers": offers_admin})

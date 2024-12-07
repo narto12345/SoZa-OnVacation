@@ -11437,7 +11437,9 @@ h6,
 
   /* ----------------------------------------------------- */
   #navbarCollapse.show.admin {
-    height: 475px;
+    /* height: 475px; */
+    height: 530px;
+
   }
 }
 
@@ -11543,5 +11545,15 @@ p {
 
   .dropdown-content a:first-child {
     margin-top: 0;
+  }
+}
+
+.logout {
+  display: none !important;
+}
+
+@media (max-width: 991px) {
+  .logout {
+    display: flex !important;
   }
 }
