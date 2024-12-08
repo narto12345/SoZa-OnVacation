@@ -1,11 +1,6 @@
 from django.db import models
 
-"""
-Nota Angie: Aquí se crearán los modelos que serán creados en la bd
-"""
 
-
-# Create your models here.
 class OfferType(models.Model):
     name = models.CharField(max_length=255)
 
@@ -30,25 +25,28 @@ class MainImage(models.Model):
         return self.name
 
 
-class GaleryImage(models.Model):
-    name = models.CharField(max_length=255)
-    path = models.CharField(max_length=500)
-
-    def __str__(self):
-        return self.name
-
-
 class Offer(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     detail = models.TextField(blank=True, null=True)
-    offer_type = models.ForeignKey(OfferType, on_delete=models.CASCADE)
+    offer_type = models.ForeignKey(OfferType, null=True, on_delete=models.CASCADE)
     slider_image = models.OneToOneField(
         SliderImage, on_delete=models.SET_NULL, null=True, blank=True
     )
     main_image = models.OneToOneField(
         MainImage, on_delete=models.SET_NULL, null=True, blank=True
     )
+
+    def __str__(self):
+        return self.name
+
+
+class GaleryImage(models.Model):
+    offer = models.ForeignKey(
+        Offer, related_name="gallery_images", on_delete=models.CASCADE
+    )
+    name = models.CharField(max_length=255)
+    path = models.CharField(max_length=500)
 
     def __str__(self):
         return self.name

@@ -50,3 +50,8 @@
     border: 1px solid var(--light);
     border-radius: 4px;
 }
+
+.login-panel .error-message {
+    color: var(--primary);
+    margin-bottom: 15px;
+}

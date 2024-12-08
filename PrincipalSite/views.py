@@ -1,9 +1,11 @@
 from datetime import datetime, timezone
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
-
+from django.contrib import messages
 from PrincipalSite.models import *
-from .forms import ContactForm
+import os
+from django.core.files.storage import FileSystemStorage
+from django.conf import settings
 
 ADMIN_USER = "admin"
 ADMIN_PASSWORD = "contrasena"
@@ -33,7 +35,7 @@ def login(request):
         password = request.POST.get("password")
         if username == ADMIN_USER and password == ADMIN_PASSWORD:
             request.session["is_authenticated"] = True
-            return redirect("initial_page")  # Cambiar por la vista principal
+            return redirect("initial_page")
         return render(
             request, "login.html", {"error": "Usuario o contraseña incorrectos"}
         )
@@ -94,7 +96,49 @@ def trazability(request):
 
 @session_required
 def create_offer(request):
-    return render(request, "form_offer.html")
+    if request.method == "POST":
+        name_request = request.POST["name"]
+        description_request = request.POST["description"]
+        detail_request = request.POST["detail"]
+        offer_type_id = request.POST["offer_type"]
+        offer_type_object = OfferType.objects.get(id=offer_type_id)
+        main_image = request.FILES.get("main_image")
+
+        # Validar los campos
+        if not all(
+            [
+                name_request,
+                description_request,
+                detail_request,
+                offer_type_object,
+                main_image,
+            ]
+        ):
+            messages.error(request, "Todos los campos son obligatorios.")
+            return redirect("create_offer")
+
+        path_relative = os.path.join("img", "offers", "main")
+        upload_path = os.path.join(settings.PRINCIPAL_SITE_MEDIA_ROOT, path_relative)
+
+        fs = FileSystemStorage(location=upload_path)
+        filename = fs.save(main_image.name, main_image)
+
+        main_image_entity = MainImage(name=filename, path=path_relative)
+        main_image_entity.save()
+
+        oferta = Offer(
+            name=name_request,
+            description=description_request,
+            offer_type=offer_type_object,
+            detail=detail_request,
+            main_image=main_image_entity,
+        )
+        oferta.save()
+
+        messages.success(request, "¡Oferta creada con éxito!")
+        return redirect("create_offer")
+    else:
+        return render(request, "form_offer.html")
 
 
 def offer_detail(request):
