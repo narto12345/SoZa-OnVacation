@@ -34,11 +34,23 @@ venv/Scripts/Activate
 pip install -r requirements.txt
 ```
 
+4. Hacer migración
+
+```bash
+python manage.py makemigrations
+```
+
+5. Migrar modelos
+
+```bash
+python manage.py migrate
+```
+
 ## Ejecución de proyecto
 
 Recuerde que se manejará django, por lo que deberá contar con él en su máquina.
 Ejecute el siguiente comando para levantar el proyecto:
 
 ```bash
-  py manage.py runserver *numeroDePuerto*
+  py manage.py runserver *numeroDePuerto*[opcional]
 ```
