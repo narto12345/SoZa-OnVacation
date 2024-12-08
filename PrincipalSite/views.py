@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from PrincipalSite.models import *
+
 import os
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
@@ -101,7 +102,14 @@ def create_offer(request):
         description_request = request.POST["description"]
         detail_request = request.POST["detail"]
         offer_type_id = request.POST["offer_type"]
-        offer_type_object = OfferType.objects.get(id=offer_type_id)
+
+        try:
+            offer_type_object = OfferType.objects.get(id=offer_type_id)
+        except OfferType.DoesNotExist:
+            messages.error(request, "El tipo de oferta no existe")
+            return redirect("create_offer")
+
+        gallery_images = request.FILES.getlist("galery_image")
         main_image = request.FILES.get("main_image")
 
         # Validar los campos
@@ -112,6 +120,7 @@ def create_offer(request):
                 detail_request,
                 offer_type_object,
                 main_image,
+                gallery_images,
             ]
         ):
             messages.error(request, "Todos los campos son obligatorios.")
@@ -134,6 +143,22 @@ def create_offer(request):
             main_image=main_image_entity,
         )
         oferta.save()
+
+        path_relative_gallery = os.path.join("img", "offers", "gallery")
+        upload_path_gallery = os.path.join(
+            settings.PRINCIPAL_SITE_MEDIA_ROOT, path_relative_gallery
+        )
+        fs_gallery = FileSystemStorage(location=upload_path_gallery)
+
+        for gallery_image in gallery_images:
+            filename_gallery = fs_gallery.save(gallery_image.name, gallery_image)
+
+            gallery_image_entity = GaleryImage(
+                offer=oferta,
+                name=filename_gallery,
+                path=path_relative_gallery,
+            )
+            gallery_image_entity.save()
 
         messages.success(request, "¡Oferta creada con éxito!")
         return redirect("create_offer")
