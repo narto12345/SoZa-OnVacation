@@ -24,44 +24,46 @@
 <!-- Filtro de fechas -->
 <div class="main-container">
     <div class="filter-container">
-        <label for="start-date">Fecha de inicio:</label>
-        <input type="date" id="start-date" name="start-date">
-
-        <label for="end-date">Fecha de fin:</label>
-        <input type="date" id="end-date" name="end-date">
-
-        <button class="filter-btn">Filtrar</button>
+        <form method="GET" action="{% url 'trazability' %}">
+            <label for="start_date">Fecha de inicio:</label>
+            <input type="date" id="start_date" name="start_date" value="{{ request.GET.start_date }}">
+        
+            <label for="end_date">Fecha de fin:</label>
+            <input type="date" id="end_date" name="end_date" value="{{ request.GET.end_date }}">
+        
+            <button class="filter-btn" type="submit">Filtrar</button>
+        </form>
     </div>
-
-   <!-- Tabla -->
-<table class="message-table">
-    <thead>
-        <tr>
-            <th>Nombre Remitente</th>
-            <th>Correo</th>
-            <th>Asunto</th>
-            <th>Mensaje</th>
-            <th>Fecha de Envío</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for contact in contacts %} <!--For para recorrer en django el modelo que se envió desde la vista-->
-        <tr>
-            <td>{{ contact.name }}</td>
-            <td>{{ contact.email }}</td>
-            <td>{{ contact.subject }}</td>
-            <td>{{ contact.message }}</td>
-            <td>{{ contact.created_at|date:"d/m/Y" }}</td> <!-- Formateamos la fecha -->
-            <td><button class="btn-detail"><span>🔍</span> Más detalle</button></td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="6">No hay mensajes disponibles.</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    
+    <!-- Tabla -->
+    <table class="message-table">
+        <thead>
+            <tr>
+                <th>Nombre Remitente</th>
+                <th>Correo</th>
+                <th>Asunto</th>
+                <th>Mensaje</th>
+                <th>Fecha de Envío</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.subject }}</td>
+                <td>{{ contact.message }}</td>
+                <td>{{ contact.created_at|date:"d/m/Y" }}</td>
+                <td><button class="btn-detail"><span>🔍</span> Más detalle</button></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No hay mensajes disponibles.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
     <!-- Trazabilidad End -->
     {% endblock %}

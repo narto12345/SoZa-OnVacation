@@ -89,9 +89,21 @@ def offers(request):
 
 @session_required
 def trazability(request):
-    contacts = (
-        Contact.objects.all()
-    )  ##Lo usamos para traer todos los datos del modelo y plasmarlos posteriormente en la tabla :)
+    contacts = Contact.objects.all()
+
+    # Capturar los parámetros corregidos
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
+
+    # Filtrar si ambas fechas están presentes
+    if start_date and end_date:
+        try:
+            start_date = datetime.strptime(start_date, "%Y-%m-%d").date()
+            end_date = datetime.strptime(end_date, "%Y-%m-%d").date()
+            contacts = contacts.filter(created_at__date__range=(start_date, end_date))
+        except ValueError:
+            messages.error(request, "Formato de fechas inválido.")
+
     return render(request, "trazability.html", {"contacts": contacts})
 
 
