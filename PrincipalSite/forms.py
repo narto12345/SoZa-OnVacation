@@ -1,7 +1,7 @@
 ##En este archivo vamos a crear todas las clases de los formularios que necesitemos (lo busqué en internet jaja)
 from django import forms
 from .models import Contact, Offer, OfferType
-
+from django.utils.translation import gettext_lazy as _
 
 ##Clase para el formulario de contacto
 class ContactForm(forms.ModelForm):
@@ -28,6 +28,7 @@ class ContactForm(forms.ModelForm):
                     "class": "form-control p-4",
                     "placeholder": "Asunto",
                     "required": "required",
+                    "maxlength": "2", 
                 }
             ),
             "message": forms.Textarea(
@@ -36,6 +37,7 @@ class ContactForm(forms.ModelForm):
                     "rows": 6,
                     "placeholder": "Mensaje",
                     "required": "required",
+                    "maxlength": "200", 
                 }
             ),
         }

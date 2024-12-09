@@ -45,7 +45,7 @@
                 </div>
             </div>
             <!-- Columna derecha para el formulario de contacto -->
-            <div class="">
+            <div class="form-size">
                 <div class="card-form form rounded p-5">
                     <div id="success"></div>
                     <form name="sentMessage" id="contactForm" method="post" novalidate="novalidate">
@@ -57,20 +57,20 @@
                             <div class="col-sm-6 control-group">
                                 {{ form.name }}
                                 <!--De aquí hacia abajo se heredan los campos de forms.py, del FormContact que se creó-->
-                                <p class="help-block text-danger">{{ form.name.errors }}</p>
+                                <p class="text-area-error help-block text-danger" style="display: table-caption;">{{ form.name.errors }}</p>
                             </div>
                             <div class="col-sm-6 control-group">
                                 {{ form.email }}
-                                <p class="help-block text-danger">{{ form.email.errors }}</p>
+                                <p class="help-block text-danger text-area-error" style="display: table-caption !important;">{{ form.email.errors }}</p>
                             </div>
                         </div>
                         <div class="control-group">
                             {{ form.subject }}
-                            <p class="help-block text-danger">{{ form.subject.errors }}</p>
+                            <p class="help-block text-danger text-area-error" style="display: table-caption;">{{ form.subject.errors }}</p>
                         </div>
                         <div class="control-group">
                             {{ form.message }}
-                            <p class="help-block text-danger">{{ form.message.errors }}</p>
+                            <p class="help-block text-danger text-area-error" style="display: table-caption !important;">{{ form.message.errors }}</p>
                         </div>
                         <div>
                             <button class="btn btn-primary btn-block py-3 px-5" type="submit"
@@ -83,8 +83,8 @@
     </div>
 </div>
 <!-- Modal para cuando se envía correctamente el form -->
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel"
-    aria-hidden="true">
+<!-- Modal de éxito para cuando el mensaje sea enviado correctamente -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -94,18 +94,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                El mensaje fue enviado correctamente.
+                El mensaje fue enviado correctamente. ¡Gracias por contactarnos!
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.reload();">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
-
 <script>
-    // Script necesario para pasar la url donde aparecerá el modal al archivo contact.js
-    const contactUrl = "{% url 'contact' %}";
+    // Script necesario para pasar la url donde aparecerá el modal al archivo contact.js     
+    const contactUrl = '/contact/';
 </script>
 <!-- Contact End -->
 {% endblock %}

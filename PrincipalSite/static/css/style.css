@@ -10837,6 +10837,7 @@ a.text-warning:focus {
 
 .text-danger {
   color: #dc3545 !important;
+  display: table-caption !important;
 }
 
 a.text-danger:hover,

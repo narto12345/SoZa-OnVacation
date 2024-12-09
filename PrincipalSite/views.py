@@ -2,6 +2,8 @@ from datetime import datetime, timezone
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
+import pytz
+from PrincipalSite.forms import ContactForm
 from PrincipalSite.models import *
 
 import os
@@ -27,8 +29,9 @@ def session_required(view_func):
 
 
 def initial_page(request):
-    return render(request, "index.html")
-
+    principal_offers=Offer.objects.filter(offer_type=3)
+    slider=Offer.objects.filter(offer_type=2).order_by('id')
+    return render(request, "index.html",{"principal_offers":principal_offers, "slider_data":slider})
 
 def login(request):
     if request.method == "POST":
@@ -51,7 +54,14 @@ def logout_view(request):
 def contact(request):
     # Se debe generar la variable form para cualquier petición, sea post o get
     form = ContactForm()  # Se usa vacía por si el valor es un get.
-
+    
+    # Obtenemos con la nueva librería la zona horaria de Colombia
+    colombia_tz = pytz.timezone('America/Bogota')
+    # Ahora obtenemos la hora
+    utc_now = datetime.utcnow()
+    # Luego la convertimos a Zona colombiana
+    utc_now = pytz.utc.localize(utc_now) 
+    colombia_time = utc_now.astimezone(colombia_tz)
     if request.method == "POST":
         form = ContactForm(
             request.POST
@@ -61,12 +71,18 @@ def contact(request):
             form.is_valid()
         ):  # Esta parte es propia de django, lo usamos para que valide campos obligatorios y demás
             # Crear un nuevo objeto Contact con los datos que envió el usuario.
+            # Definir la zona horaria de Colombia
+
+    # Asegúrate de convertirlo a la zona horaria de Colombia
+            # Obtener la hora actual en UTC y luego convertirla a la hora de Colombia
+            
             contact = Contact(
                 name=form.cleaned_data["name"],
                 email=form.cleaned_data["email"],
                 subject=form.cleaned_data["subject"],
                 message=form.cleaned_data["message"],
-                created_at=datetime.now(),
+                # created_at=datetime.now(),
+                created_at = colombia_time
             )
 
             # Guardar el objeto Contact en la base de datos y en el modelo que se creó

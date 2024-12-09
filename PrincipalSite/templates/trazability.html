@@ -44,7 +44,6 @@
                 <th>Asunto</th>
                 <th>Mensaje</th>
                 <th>Fecha de Envío</th>
-                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -55,7 +54,6 @@
                 <td>{{ contact.subject }}</td>
                 <td>{{ contact.message }}</td>
                 <td>{{ contact.created_at|date:"d/m/Y" }}</td>
-                <td><button class="btn-detail"><span>🔍</span> Más detalle</button></td>
             </tr>
             {% empty %}
             <tr>

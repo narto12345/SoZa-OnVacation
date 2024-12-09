@@ -2,4 +2,3 @@
 .venv
 venv/
 db.sqlite3
-PrincipalSite/static/img/offers/
