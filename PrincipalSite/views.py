@@ -29,9 +29,14 @@ def session_required(view_func):
 
 
 def initial_page(request):
-    principal_offers=Offer.objects.filter(offer_type=3)
-    slider=Offer.objects.filter(offer_type=2).order_by('id')
-    return render(request, "index.html",{"principal_offers":principal_offers, "slider_data":slider})
+    principal_offers = Offer.objects.filter(offer_type=3)
+    slider = Offer.objects.filter(offer_type=2).order_by("id")
+    return render(
+        request,
+        "index.html",
+        {"principal_offers": principal_offers, "slider_data": slider},
+    )
+
 
 def login(request):
     if request.method == "POST":
@@ -54,13 +59,13 @@ def logout_view(request):
 def contact(request):
     # Se debe generar la variable form para cualquier petición, sea post o get
     form = ContactForm()  # Se usa vacía por si el valor es un get.
-    
+
     # Obtenemos con la nueva librería la zona horaria de Colombia
-    colombia_tz = pytz.timezone('America/Bogota')
+    colombia_tz = pytz.timezone("America/Bogota")
     # Ahora obtenemos la hora
     utc_now = datetime.utcnow()
     # Luego la convertimos a Zona colombiana
-    utc_now = pytz.utc.localize(utc_now) 
+    utc_now = pytz.utc.localize(utc_now)
     colombia_time = utc_now.astimezone(colombia_tz)
     if request.method == "POST":
         form = ContactForm(
@@ -73,16 +78,16 @@ def contact(request):
             # Crear un nuevo objeto Contact con los datos que envió el usuario.
             # Definir la zona horaria de Colombia
 
-    # Asegúrate de convertirlo a la zona horaria de Colombia
+            # Asegúrate de convertirlo a la zona horaria de Colombia
             # Obtener la hora actual en UTC y luego convertirla a la hora de Colombia
-            
+
             contact = Contact(
                 name=form.cleaned_data["name"],
                 email=form.cleaned_data["email"],
                 subject=form.cleaned_data["subject"],
                 message=form.cleaned_data["message"],
                 # created_at=datetime.now(),
-                created_at = colombia_time
+                created_at=colombia_time,
             )
 
             # Guardar el objeto Contact en la base de datos y en el modelo que se creó
@@ -108,8 +113,8 @@ def trazability(request):
     contacts = Contact.objects.all()
 
     # Capturar los parámetros corregidos
-    start_date = request.GET.get('start_date')
-    end_date = request.GET.get('end_date')
+    start_date = request.GET.get("start_date")
+    end_date = request.GET.get("end_date")
 
     # Filtrar si ambas fechas están presentes
     if start_date and end_date:
@@ -170,6 +175,15 @@ def create_offer(request):
             detail=detail_request,
             main_image=main_image_entity,
         )
+
+        if offer_type_object.name == "slider":
+            slider_object = SliderImage(
+                name=name_request, slogan=detail_request, path=path_relative
+            )
+
+            slider_object.save()
+            oferta.slider_image = slider_object
+
         oferta.save()
 
         path_relative_gallery = os.path.join("img", "offers", "gallery")
