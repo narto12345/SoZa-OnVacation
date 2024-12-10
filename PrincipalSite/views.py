@@ -135,11 +135,18 @@ def create_offer(request):
         description_request = request.POST["description"]
         detail_request = request.POST["detail"]
         offer_type_id = request.POST["offer_type"]
+        location_menu_id = request.POST["location_menu"]
 
         try:
             offer_type_object = OfferType.objects.get(id=offer_type_id)
         except OfferType.DoesNotExist:
             messages.error(request, "El tipo de oferta no existe")
+            return redirect("create_offer")
+
+        try:
+            location_menu_object = LocationMenu.objects.get(id=location_menu_id)
+        except LocationMenu.DoesNotExist:
+            messages.error(request, "La localización no existe")
             return redirect("create_offer")
 
         gallery_images = request.FILES.getlist("galery_image")
@@ -154,9 +161,14 @@ def create_offer(request):
                 offer_type_object,
                 main_image,
                 gallery_images,
+                location_menu_object,
             ]
         ):
             messages.error(request, "Todos los campos son obligatorios.")
+            return redirect("create_offer")
+
+        if len(gallery_images) > 3:
+            messages.error(request, "No puedes subir más de 3 imágens")
             return redirect("create_offer")
 
         path_relative = os.path.join("img", "offers", "main")
@@ -168,18 +180,39 @@ def create_offer(request):
         main_image_entity = MainImage(name=filename, path=path_relative)
         main_image_entity.save()
 
+        if offer_type_object.name == "slider":
+            current_sliders = SliderImage.objects.all()
+            if current_sliders.count() >= 3:
+                messages.error(request, "No pueden haber más de 3 sliders")
+                return redirect("create_offer")
+
+        if offer_type_object.name == "oferta principal":
+            current_offer_main = Offer.objects.filter(
+                offer_type__name="oferta principal"
+            )
+            if current_offer_main.count() >= 3:
+                messages.error(request, "No pueden haber más de 3 ofertas principales")
+                return redirect("create_offer")
+
+        if offer_type_object.name == "destino principal":
+            current_destination = Offer.objects.filter(
+                offer_type__name="destino principal"
+            )
+            if current_destination.count() >= 6:
+                messages.error(request, "No pueden haber más de 6 destinos principales")
+                return redirect("create_offer")
+
         oferta = Offer(
             name=name_request,
             description=description_request,
             offer_type=offer_type_object,
             detail=detail_request,
             main_image=main_image_entity,
+            location_menu=location_menu_object,
         )
 
         if offer_type_object.name == "slider":
-            slider_object = SliderImage(
-                name=name_request, slogan=detail_request, path=path_relative
-            )
+            slider_object = SliderImage(name=name_request, slogan=detail_request)
 
             slider_object.save()
             oferta.slider_image = slider_object
