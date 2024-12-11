@@ -11499,7 +11499,7 @@ h6,
   transform: scaleY(0);
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform-origin: top;
-  width: 171px;
+  width: 140px;
   height: 155px;
   z-index: -1000;
 }
