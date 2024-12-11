@@ -29,7 +29,8 @@
                     <img class="img-fluid w-100" src="../static/img/offers/main/{{offer.main_image}}" alt="">
                     <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
                         style="width: auto; height: 60px; bottom: -30px; right: 30px; padding: 10px;">
-                        <h5 class="text-price font-weight-bold mb-n1">$50.000</h5>
+                        <h5 class="text-price font-weight-bold mb-n1">${% if offer.price %}{{ offer.price|floatformat:0 }}{% else %}No aplica{% endif %}
+                        </h5>
                     </div>
                 </div>
                 <div class="bg-secondary" style="padding: 30px;">
@@ -40,7 +41,7 @@
                         </div>
                         <div class="d-flex align-items-center ml-4">
                             <i class="far fa-bookmark text-primary"></i>
-                            <a class="text-muted ml-2" href="">Playas</a>
+                            <a class="text-muted ml-2" href="">Ofertas</a>
                         </div>
                     </div>
                     <h4 class="font-weight-bold mb-3">{{offer.name}}</h4>

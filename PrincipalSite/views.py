@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+import re
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
@@ -145,9 +146,11 @@ def create_offer(request):
         name_request = request.POST["name"]
         description_request = request.POST["description"]
         detail_request = request.POST["detail"]
+        price_request = request.POST["price"]
         offer_type_id = request.POST["offer_type"]
         location_menu_id = request.POST["location_menu"]
-
+        info_request=request.POST["moreinfo"]
+        price_request = re.sub(r'\D', '', price_request)
         try:
             offer_type_object = OfferType.objects.get(id=offer_type_id)
         except OfferType.DoesNotExist:
@@ -169,6 +172,7 @@ def create_offer(request):
                 name_request,
                 description_request,
                 detail_request,
+                price_request,
                 offer_type_object,
                 main_image,
                 gallery_images,
@@ -218,8 +222,10 @@ def create_offer(request):
             description=description_request,
             offer_type=offer_type_object,
             detail=detail_request,
+            price=price_request,
             main_image=main_image_entity,
             location_menu=location_menu_object,
+            more_information=info_request
         )
 
         if offer_type_object.name == "slider":

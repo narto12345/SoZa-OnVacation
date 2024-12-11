@@ -43,6 +43,8 @@ class Offer(models.Model):
     main_image = models.OneToOneField(
         MainImage, on_delete=models.SET_NULL, null=True, blank=True
     )
+    price = models.FloatField(null=True, blank=True)
+    more_information=models.CharField(max_length=500, null=True)
 
     def __str__(self):
         return self.name

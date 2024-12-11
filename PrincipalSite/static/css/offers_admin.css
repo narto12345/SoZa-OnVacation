@@ -130,3 +130,17 @@
         /* Evita que las filas se envuelvan */
     }
 }
+
+.bton-create {
+    background-color: var(--success);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.bton-create:hover{
+    background-color: var(--success);
+    color: var(--light);
+}
