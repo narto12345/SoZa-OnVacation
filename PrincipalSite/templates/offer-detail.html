@@ -24,19 +24,20 @@
             <div class="col-lg-8">
                 <div class="mb-5">
                     <div class="d-flex mb-2">
-                        <span class="text-secondary text-uppercase font-weight-medium" href="">Playa</span>
+                        <span class="text-secondary text-uppercase font-weight-medium" href="">Ofertas</span>
                         <span class="text-primary px-2">|</span>
-                        <span class="text-secondary text-uppercase font-weight-medium" href="">Caribe</span>
-                        <span class="text-primary px-2">|</span>
-                        <span class="text-secondary text-uppercase font-weight-medium" href="">Vacaciones</span>
+                        <span class="text-secondary text-uppercase font-weight-medium" href="">Alojamientos</span>
+                        <!-- <span class="text-primary px-2">|</span>
+                        <span class="text-secondary text-uppercase font-weight-medium" href="">Vacaciones</span> -->
                     </div>
                     
-                    <span class="price py-2" href="#">$790.000</span>
+                    <span class="price py-2" href="#">${% if detail.price %}{{ detail.price|floatformat:0 }}{% else %}No aplica{% endif %}
+                    </span>
                     <h1 class="section-title mb-3" style="font-size: 35px;">{{detail.name}}
                     </h1>
                     <div class="options">
-                        <a class="btn btn-sm btn-primary py-2" href="#">Realizar Cotización</a>
-                        <a class="btn btn-sm btn-primary py-2" href="#">Más información</a>
+                        <a class="btn btn-sm btn-primary py-2" href="{% url 'contact' %}">Realizar Cotización</a>
+                        <a class="btn btn-sm btn-primary py-2" href="{% if detail.more_information %}{{ detail.more_information }}{% else %}#{% endif %}">Más información</a>
                     </div>
                 </div>
 
