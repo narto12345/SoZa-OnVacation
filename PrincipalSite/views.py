@@ -30,11 +30,12 @@ def session_required(view_func):
 
 def initial_page(request):
     principal_offers = Offer.objects.filter(offer_type=3)
-    slider = Offer.objects.filter(offer_type=2).order_by("id")
+    slider = Offer.objects.filter(offer_type=2).order_by("id"),
+    locations=Offer.objects.filter(offer_type=4)
     return render(
         request,
         "index.html",
-        {"principal_offers": principal_offers, "slider_data": slider},
+        {"principal_offers": principal_offers, "slider_data": slider, "locations":locations},
     )
 
 
@@ -104,8 +105,18 @@ def contact(request):
     return render(request, "contact.html", {"form": form})
 
 
-def offers(request):
-    return render(request, "offers.html")
+def offers(request, offer_type):
+        if offer_type == 'nacionales':
+            offers_general = Offer.objects.filter(location_menu_id=1)
+        elif offer_type == 'internacionales':
+            offers_general = Offer.objects.filter(location_menu_id=2)
+        elif offer_type == 'alojamientos':
+            offers_general = Offer.objects.filter(location_menu_id=3)
+        else:
+            offers_general = Offer.objects.filter(location_menu_id=4)
+
+        # offers_general=Offer.objects.filter(offer_type=1)
+        return render(request, "offers.html", {"offers_general":offers_general})
 
 
 @session_required
@@ -241,8 +252,11 @@ def create_offer(request):
         return render(request, "form_offer.html")
 
 
-def offer_detail(request):
-    return render(request, "offer-detail.html")
+def offer_detail(request,name_offer):
+    detail_offer=Offer.objects.filter(id=name_offer)
+    gallery_images=GaleryImage.objects.filter(offer_id=name_offer)
+    print(gallery_images)
+    return render(request, "offer-detail.html", {"detail_offer": detail_offer, "gallery_images":gallery_images})
 
 
 @session_required

@@ -124,9 +124,9 @@
             <img src="../static/img/icons/viaje.png" alt="Imagen de compra de viaje">
         </div>
         <div class="card-content">
-            <h3>Compra tu viaje</h3>
-            <p>¡Encuentra las mejores ofertas y reserva ahora!</p>
-            <a href="{% url 'offers' %}">Comprar ahora</a>
+            <h3>On Ahorra</h3>
+            <p>¡Con bonos y más beneficios para ti!</p>
+            <a href="https://drive.google.com/drive/folders/1sbfBHK1XO2nnlIcVaQnVKZxhHOK6Xrrq">Más Detalles</a>
         </div>
     </div>
     <div class="card-planning">
@@ -134,9 +134,9 @@
             <img src="../static/img/icons/call.png" alt="Imagen de planificación de viaje">
         </div>
         <div class="card-content">
-            <h3>Planea tu viaje</h3>
-            <p>Organiza todo lo que necesitas para unas vacaciones perfectas.</p>
-            <a href="{% url 'offers' %}">Planifica tu viaje</a>
+            <h3>Club de socios</h3>
+            <p>¡Nuestro producto estrella! Contáctanos y recibe los mejores beneficios en tus viajes</p>
+            <a href="https://drive.google.com/drive/folders/1ipo0ZuBSs2ez71dPR8nwuSfyXiQKlJnI">Contáctanos</a>
         </div>
     </div>
     <div class="card-planning">
@@ -162,73 +162,20 @@
             </h1>
         </div>
     </div>
+    {% for location in locations %}
     <div class="row m-0 portfolio-container">
         <div class="col-lg-4 col-md-6 p-0 portfolio-item">
             <div class="position-relative overflow-hidden">
-                <img class="img-fluid w-100" src="../static/img/san_andresjpeg.jpeg" alt="">
+                <img class="img-fluid w-100" src="../static/img/offers/main/{{location.main_image}}" alt="">
                 <a class="portfolio-btn container-main-detination" href="#">
                     <div class="main-destination">
-                        <h2>San Andres</h2>
+                        <h2>{{location.name}}</h2>
                         <p>(Ver Oferta)</p>
                     </div>
                 </a>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-6 p-0 portfolio-item">
-            <div class="position-relative overflow-hidden">
-                <img class="img-fluid w-100" src="../static/img/cali.jpg" alt="">
-                <a class="portfolio-btn container-main-detination" href="#">
-                    <div class="main-destination">
-                        <h2>Cali</h2>
-                        <p>(Ver Oferta)</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 p-0 portfolio-item">
-            <div class="position-relative overflow-hidden">
-                <img class="img-fluid w-100" src="../static/img/cartagena.jpg" alt="">
-                <a class="portfolio-btn container-main-detination" href="#">
-                    <div class="main-destination">
-                        <h2>Cartagena</h2>
-                        <p>(Ver Oferta)</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 p-0 portfolio-item">
-            <div class="position-relative overflow-hidden">
-                <img class="img-fluid w-100" src="../static/img/medellin.avif" alt="">
-                <a class="portfolio-btn container-main-detination" href="#">
-                    <div class="main-destination">
-                        <h2>Medellín</h2>
-                        <p>(Ver Oferta)</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 p-0 portfolio-item">
-            <div class="position-relative overflow-hidden">
-                <img class="img-fluid w-100" src="../static/img/santa_marta.jpg" alt="">
-                <a class="portfolio-btn container-main-detination" href="#">
-                    <div class="main-destination">
-                        <h2>Santa Marta</h2>
-                        <p>(Ver Oferta)</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 p-0 portfolio-item">
-            <div class="position-relative overflow-hidden">
-                <img class="img-fluid w-100" src="../static/img/guarija.jpeg" alt="">
-                <a class="portfolio-btn container-main-detination" href="#">
-                    <div class="main-destination">
-                        <h2>La Guarija</h2>
-                        <p>(Ver Oferta)</p>
-                    </div>
-                </a>
-            </div>
-        </div>
+        </div>       
+        {% endfor %}
     </div>
 </div>
 <!-- Principales End -->

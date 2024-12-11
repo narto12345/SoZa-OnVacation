@@ -11527,6 +11527,7 @@ h6,
 p {
   margin-left: 10px;
   margin-right: 10px;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 991px) {

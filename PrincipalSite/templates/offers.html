@@ -23,9 +23,10 @@
             <h1 class="mb-4">El Mundo A Tu Alcance</h1>
         </div>
         <div class="row">
+            {% for offer in offers_general %}
             <div class="col-md-6 mb-5">
                 <div class="position-relative">
-                    <img class="img-fluid w-100" src="{% static 'img/san_andresjpeg.jpeg' %}" alt="">
+                    <img class="img-fluid w-100" src="../static/img/offers/main/{{offer.main_image}}" alt="">
                     <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
                         style="width: auto; height: 60px; bottom: -30px; right: 30px; padding: 10px;">
                         <h5 class="text-price font-weight-bold mb-n1">$50.000</h5>
@@ -42,137 +43,15 @@
                             <a class="text-muted ml-2" href="">Playas</a>
                         </div>
                     </div>
-                    <h4 class="font-weight-bold mb-3">San Andres</h4>
-                    <p>Descripción básica de la oferta.</p>
+                    <h4 class="font-weight-bold mb-3">{{offer.name}}</h4>
+                    <p>{{offer.description}}</p>
                     <a class="border-bottom border-primary text-uppercase text-decoration-none"
-                        href="{% url 'offer-detail' %}">Ver más <i class="fa fa-angle-right"></i></a>
+                        href="{% url 'offer-detail' name_offer=offer.id %}">Ver más <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-6 mb-5">
-                <div class="position-relative">
-                    <img class="img-fluid w-100" src="{% static 'img/cali.jpg' %}" alt="">
-                    <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
-                        style="width: auto; height: 60px; bottom: -30px; right: 30px; padding: 10px;">
-                        <h5 class="text-price font-weight-bold mb-n1">$469.000</h5>
-                    </div>
-                </div>
-                <div class="bg-secondary" style="padding: 30px;">
-                    <div class="d-flex mb-3">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded-circle" style="width: 40px; height: 40px;"
-                                src="{% static 'img/icons/ciudad-icono.png' %}" alt="">
-                        </div>
-                        <div class="d-flex align-items-center ml-4">
-                            <i class="far fa-bookmark text-primary"></i>
-                            <a class="text-muted ml-2" href="">Urbano</a>
-                        </div>
-                    </div>
-                    <h4 class="font-weight-bold mb-3">Cali</h4>
-                    <p>Descripción básica de la oferta.</p>
-                    <a class="border-bottom border-primary text-uppercase text-decoration-none"
-                        href="{% url 'offer-detail' %}">Ver más <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-6 mb-5">
-                <div class="position-relative">
-                    <img class="img-fluid w-100" src="{% static 'img/cartagena.jpg' %}" alt="">
-                    <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
-                        style="width: auto; height: 60px; bottom: -30px; right: 30px; padding: 10px;">
-                        <h5 class="text-price font-weight-bold mb-n1">$1'000.000</h5>
-                    </div>
-                </div>
-                <div class="bg-secondary" style="padding: 30px;">
-                    <div class="d-flex mb-3">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded-circle" style="width: 40px; height: 40px;"
-                                src="{% static 'img/icons/rural-icono.png' %}" alt="">
-                        </div>
-                        <div class="d-flex align-items-center ml-4">
-                            <i class="far fa-bookmark text-primary"></i>
-                            <a class="text-muted ml-2" href="">Rural</a>
-                        </div>
-                    </div>
-                    <h4 class="font-weight-bold mb-3">Amazonas</h4>
-                    <p>Descripción básica de la oferta.</p>
-                    <a class="border-bottom border-primary text-uppercase text-decoration-none"
-                        href="{% url 'offer-detail' %}">Ver más <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-6 mb-5">
-                <div class="position-relative">
-                    <img class="img-fluid w-100" src="{% static 'img/medellin.avif' %}" alt="">
-                    <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
-                        style="width: auto; height: 60px; bottom: -30px; right: 30px; padding: 10px;">
-                        <h5 class="text-price font-weight-bold mb-n1">$856.000</h5>
-                    </div>
-                </div>
-                <div class="bg-secondary" style="padding: 30px;">
-                    <div class="d-flex mb-3">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded-circle" style="width: 40px; height: 40px;"
-                                src="{% static 'img/icons/playa-icono.png' %}" alt="">
-                        </div>
-                        <div class="d-flex align-items-center ml-4">
-                            <i class="far fa-bookmark text-primary"></i>
-                            <a class="text-muted ml-2" href="">Playas</a>
-                        </div>
-                    </div>
-                    <h4 class="font-weight-bold mb-3">Cartagena</h4>
-                    <p>Descripción básica de la oferta.</p>
-                    <a class="border-bottom border-primary text-uppercase text-decoration-none"
-                        href="{% url 'offer-detail' %}">Ver más <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-6 mb-5">
-                <div class="position-relative">
-                    <img class="img-fluid w-100" src="{% static 'img/guarija.jpeg' %}" alt="">
-                    <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
-                        style="width: auto; height: 60px; bottom: -30px; right: 30px; padding: 10px;">
-                        <h5 class="text-price font-weight-bold mb-n1">$1'789.000</h5>
-                    </div>
-                </div>
-                <div class="bg-secondary" style="padding: 30px;">
-                    <div class="d-flex mb-3">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded-circle" style="width: 40px; height: 40px;"
-                                src="{% static 'img/icons/playa-icono.png' %}" alt="">
-                        </div>
-                        <div class="d-flex align-items-center ml-4">
-                            <i class="far fa-bookmark text-primary"></i>
-                            <a class="text-muted ml-2" href="">Playas</a>
-                        </div>
-                    </div>
-                    <h4 class="font-weight-bold mb-3">La Guarija</h4>
-                    <p>Descripción básica de la oferta.</p>
-                    <a class="border-bottom border-primary text-uppercase text-decoration-none"
-                        href="{% url 'offer-detail' %}">Ver más <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-6 mb-5">
-                <div class="position-relative">
-                    <img class="img-fluid w-100" src="{% static 'img/santa_marta.jpg' %}" alt="">
-                    <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
-                        style="width: auto; height: 60px; bottom: -30px; right: 30px; padding: 10px;">
-                        <h5 class="text-price font-weight-bold mb-n1">$3'239.300</h5>
-                    </div>
-                </div>
-                <div class="bg-secondary" style="padding: 30px;">
-                    <div class="d-flex mb-3">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded-circle" style="width: 40px; height: 40px;"
-                                src="{% static 'img/icons/rural-icono.png' %}" alt="">
-                        </div>
-                        <div class="d-flex align-items-center ml-4">
-                            <i class="far fa-bookmark text-primary"></i>
-                            <a class="text-muted ml-2" href="">Rutal</a>
-                        </div>
-                    </div>
-                    <h4 class="font-weight-bold mb-3">Santa Marta</h4>
-                    <p>Descripción básica de la oferta.</p>
-                    <a class="border-bottom border-primary text-uppercase text-decoration-none"
-                        href="{% url 'offer-detail' %}">Ver más <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
+            {% endfor %}
+
+
         </div>
     </div>
 </div>
