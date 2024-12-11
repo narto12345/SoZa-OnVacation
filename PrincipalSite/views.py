@@ -204,6 +204,15 @@ def create_offer(request):
             if current_offer_main.count() >= 3:
                 messages.error(request, "No pueden haber más de 3 ofertas principales")
                 return redirect("create_offer")
+            
+        if offer_type_object.name == "promocion":
+            current_promotions = Offer.objects.filter(
+                offer_type__name="promocion"
+            )
+            if current_promotions.count() >= 4:
+                messages.error(request, "No pueden haber más de 4 imagenes promociones")
+                return redirect("create_offer")
+
 
         if offer_type_object.name == "destino principal":
             current_destination = Offer.objects.filter(
