@@ -62,11 +62,13 @@
             <td>{{ offer.detail}}</td>
             <td>{{ offer.offer_type}}</td>
             <td>{{ offer.main_image }}</td> <!-- Formateamos la fecha -->
-            <td>
-                <a href="{% url 'edit_offer' offer_id=offer.id %}"><button class="btn-detail"><span>🔍</span>
-                        Actualizar</button></a>
-                <a href="{% url 'delete_offer' offer_id=offer.id %}"><button class="btn-detail"><span>🔍</span>
-                        Eliminar</button></a>
+            <td class="buton-container-detail">
+                <a href="{% url 'edit_offer' offer_id=offer.id %}">
+                    <button class="btn-detail"><span><i class="fas fa-cogs"></i></span> Actualizar</button>
+                </a>
+                <a href="{% url 'delete_offer' offer_id=offer.id %}">
+                    <button class="btn-detail btn-detail-delete"><span><i class="fas fa-times"></i></span> Eliminar</button>
+                </a>
             </td>
         </tr>
         {% empty %}
