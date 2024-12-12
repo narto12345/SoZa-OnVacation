@@ -20,13 +20,29 @@
 </div>
 <!-- Header End -->
 
+{% if messages %}
+<!-- Notificación de error -->
+{% for message in messages %}
+{% if message.tags == "error" %}
+<div class="alert alert-danger">
+    <p>{{ message }}</p>
+</div>
+{% endif %}
+{% if message.tags == "success" %}
+<div class="alert alert-info">
+    <p>{{ message }}</p>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+
 <!-- Panel de ofertas Start -->
 <div class="button-container" style="margin-bottom: 10px;">
     <a href="{% url 'create_offer' %}" class="btn-create bton-create">
         Crear nueva oferta
     </a>
 </div>
-   <!-- Tabla -->
+<!-- Tabla -->
 <table class="message-table">
     <thead>
         <tr>
@@ -46,8 +62,11 @@
             <td>{{ offer.detail}}</td>
             <td>{{ offer.offer_type}}</td>
             <td>{{ offer.main_image }}</td> <!-- Formateamos la fecha -->
-            <td><button class="btn-detail"><span>🔍</span> Actualizar</button>
-                <button class="btn-detail"><span>🔍</span> Eliminar</button>
+            <td>
+                <a href="{% url 'edit_offer' offer_id=offer.id %}"><button class="btn-detail"><span>🔍</span>
+                        Actualizar</button></a>
+                <a href="{% url 'delete_offer' offer_id=offer.id %}"><button class="btn-detail"><span>🔍</span>
+                        Eliminar</button></a>
             </td>
         </tr>
         {% empty %}
@@ -58,5 +77,5 @@
     </tbody>
 </table>
 </div>
-    <!-- Trazabilidad End -->
-    {% endblock %}
+<!-- Trazabilidad End -->
+{% endblock %}

@@ -31,12 +31,16 @@ def session_required(view_func):
 
 def initial_page(request):
     principal_offers = Offer.objects.filter(offer_type=3)
-    slider = Offer.objects.filter(offer_type=2).order_by("id"),
-    locations=Offer.objects.filter(offer_type=4)
+    slider = (Offer.objects.filter(offer_type=2).order_by("id"),)
+    locations = Offer.objects.filter(offer_type=4)
     return render(
         request,
         "index.html",
-        {"principal_offers": principal_offers, "slider_data": slider, "locations":locations},
+        {
+            "principal_offers": principal_offers,
+            "slider_data": slider,
+            "locations": locations,
+        },
     )
 
 
@@ -107,17 +111,17 @@ def contact(request):
 
 
 def offers(request, offer_type):
-        if offer_type == 'nacionales':
-            offers_general = Offer.objects.filter(location_menu_id=1)
-        elif offer_type == 'internacionales':
-            offers_general = Offer.objects.filter(location_menu_id=2)
-        elif offer_type == 'alojamientos':
-            offers_general = Offer.objects.filter(location_menu_id=3)
-        else:
-            offers_general = Offer.objects.filter(location_menu_id=4)
+    if offer_type == "nacionales":
+        offers_general = Offer.objects.filter(location_menu_id=1)
+    elif offer_type == "internacionales":
+        offers_general = Offer.objects.filter(location_menu_id=2)
+    elif offer_type == "alojamientos":
+        offers_general = Offer.objects.filter(location_menu_id=3)
+    else:
+        offers_general = Offer.objects.filter(location_menu_id=4)
 
-        # offers_general=Offer.objects.filter(offer_type=1)
-        return render(request, "offers.html", {"offers_general":offers_general})
+    # offers_general=Offer.objects.filter(offer_type=1)
+    return render(request, "offers.html", {"offers_general": offers_general})
 
 
 @session_required
@@ -149,8 +153,8 @@ def create_offer(request):
         price_request = request.POST["price"]
         offer_type_id = request.POST["offer_type"]
         location_menu_id = request.POST["location_menu"]
-        info_request=request.POST["moreinfo"]
-        price_request = re.sub(r'\D', '', price_request)
+        info_request = request.POST["moreinfo"]
+        price_request = re.sub(r"\D", "", price_request)
         try:
             offer_type_object = OfferType.objects.get(id=offer_type_id)
         except OfferType.DoesNotExist:
@@ -165,6 +169,8 @@ def create_offer(request):
 
         gallery_images = request.FILES.getlist("galery_image")
         main_image = request.FILES.get("main_image")
+
+        print("price= " + price_request)
 
         # Validar los campos
         if not all(
@@ -208,15 +214,12 @@ def create_offer(request):
             if current_offer_main.count() >= 3:
                 messages.error(request, "No pueden haber más de 3 ofertas principales")
                 return redirect("create_offer")
-            
+
         if offer_type_object.name == "promocion":
-            current_promotions = Offer.objects.filter(
-                offer_type__name="promocion"
-            )
+            current_promotions = Offer.objects.filter(offer_type__name="promocion")
             if current_promotions.count() >= 4:
                 messages.error(request, "No pueden haber más de 4 imagenes promociones")
                 return redirect("create_offer")
-
 
         if offer_type_object.name == "destino principal":
             current_destination = Offer.objects.filter(
@@ -234,7 +237,7 @@ def create_offer(request):
             price=price_request,
             main_image=main_image_entity,
             location_menu=location_menu_object,
-            more_information=info_request
+            more_information=info_request,
         )
 
         if offer_type_object.name == "slider":
@@ -267,14 +270,163 @@ def create_offer(request):
         return render(request, "form_offer.html")
 
 
-def offer_detail(request,name_offer):
-    detail_offer=Offer.objects.filter(id=name_offer)
-    gallery_images=GaleryImage.objects.filter(offer_id=name_offer)
+@session_required
+def delete_offer(request, offer_id):
+    try:
+        offer = Offer.objects.get(id=offer_id)
+    except Offer.DoesNotExist:
+        messages.error(request, "La oferta no existe")
+        return redirect("offers_admin")
+
+    # Eliminar images
+    if offer.main_image:
+        main_image_path = os.path.join(
+            settings.PRINCIPAL_SITE_MEDIA_ROOT,
+            offer.main_image.path,
+            offer.main_image.name,
+        )
+        if os.path.exists(main_image_path):
+            os.remove(main_image_path)
+
+    gallery_images = GaleryImage.objects.filter(offer=offer)
+    for gallery_image in gallery_images:
+        gallery_image_path = os.path.join(
+            settings.PRINCIPAL_SITE_MEDIA_ROOT, gallery_image.path, gallery_image.name
+        )
+        if os.path.exists(gallery_image_path):
+            os.remove(gallery_image_path)
+        gallery_image.delete()
+
+    main_image = offer.main_image
+    offer.delete()
+
+    if offer.slider_image:
+        slider_image = offer.slider_image
+        slider_image.delete()
+
+    main_image.delete()
+
+    messages.success(request, "¡Oferta eliminada con éxito!")
+    return redirect("offers_admin")
+
+
+def offer_detail(request, name_offer):
+    detail_offer = Offer.objects.filter(id=name_offer)
+    gallery_images = GaleryImage.objects.filter(offer_id=name_offer)
     print(gallery_images)
-    return render(request, "offer-detail.html", {"detail_offer": detail_offer, "gallery_images":gallery_images})
+    return render(
+        request,
+        "offer-detail.html",
+        {"detail_offer": detail_offer, "gallery_images": gallery_images},
+    )
 
 
 @session_required
 def offers_admin(request):
     offers_admin = Offer.objects.all()
     return render(request, "offers_admin.html", {"offers": offers_admin})
+
+
+@session_required
+def edit_offer(request, offer_id):
+    try:
+        offer = Offer.objects.get(id=offer_id)
+    except Offer.DoesNotExist:
+        messages.error(request, "La oferta no existe")
+        return redirect("offers_admin")
+
+    gallery_images = GaleryImage.objects.filter(offer=offer)
+    offer_types = OfferType.objects.all()
+    location_menus = LocationMenu.objects.all()
+
+    if request.method == "POST":
+        offer.name = request.POST["name"]
+        offer.description = request.POST["description"]
+        offer.detail = request.POST["detail"]
+        offer.price = request.POST["price"]
+        offer.more_information = request.POST["moreinfo"]
+
+        offer_type_id = request.POST["offer_type"]
+        location_menu_id = request.POST["location_menu"]
+
+        try:
+            offer.offer_type = OfferType.objects.get(id=offer_type_id)
+        except OfferType.DoesNotExist:
+            messages.error(request, "El tipo de oferta no existe")
+            return redirect("edit_offer", offer_id=offer_id)
+
+        try:
+            offer.location_menu = LocationMenu.objects.get(id=location_menu_id)
+        except LocationMenu.DoesNotExist:
+            messages.error(request, "La localización no existe")
+            return redirect("edit_offer", offer_id=offer_id)
+
+        main_image = request.FILES.get("main_image")
+
+        if main_image:
+            # Eliminar la imagen principal anterior
+            if offer.main_image:
+                main_image_path = os.path.join(
+                    settings.PRINCIPAL_SITE_MEDIA_ROOT,
+                    offer.main_image.path,
+                    offer.main_image.name,
+                )
+                if os.path.exists(main_image_path):
+                    os.remove(main_image_path)
+                offer.main_image.delete()
+
+            # Guardar la nueva imagen principal
+            path_relative = os.path.join("img", "offers", "main")
+            upload_path = os.path.join(
+                settings.PRINCIPAL_SITE_MEDIA_ROOT, path_relative
+            )
+            fs = FileSystemStorage(location=upload_path)
+            filename = fs.save(main_image.name, main_image)
+            main_image_entity = MainImage(name=filename, path=path_relative)
+            main_image_entity.save()
+            offer.main_image = main_image_entity
+
+        # Gestionar las imágenes de galería
+        new_gallery_images = request.FILES.getlist("galery_image")
+        if new_gallery_images:
+            # Eliminar las imágenes de galería anteriores
+            for gallery_image in gallery_images:
+                gallery_image_path = os.path.join(
+                    settings.PRINCIPAL_SITE_MEDIA_ROOT,
+                    gallery_image.path,
+                    gallery_image.name,
+                )
+                if os.path.exists(gallery_image_path):
+                    os.remove(gallery_image_path)
+                gallery_image.delete()
+
+            # Guardar las nuevas imágenes de galería
+            path_relative_gallery = os.path.join("img", "offers", "gallery")
+            upload_path_gallery = os.path.join(
+                settings.PRINCIPAL_SITE_MEDIA_ROOT, path_relative_gallery
+            )
+            fs_gallery = FileSystemStorage(location=upload_path_gallery)
+
+            for gallery_image in new_gallery_images:
+                filename_gallery = fs_gallery.save(gallery_image.name, gallery_image)
+                gallery_image_entity = GaleryImage(
+                    offer=offer,
+                    name=filename_gallery,
+                    path=path_relative_gallery,
+                )
+                gallery_image_entity.save()
+
+        offer.save()
+        messages.success(request, "¡Oferta actualizada con éxito!")
+        return redirect("offers_admin")
+
+    return render(
+        request,
+        "edit_offer.html",
+        {
+            "offer": offer,
+            "offer_types": offer_types,
+            "location_menus": location_menus,
+            "gallery_images": gallery_images,
+        },
+    )
