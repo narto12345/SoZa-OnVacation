@@ -29,8 +29,7 @@
                     <img class="img-fluid w-100" src="../static/img/offers/main/{{offer.main_image}}" alt="">
                     <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
                         style="width: auto; height: 60px; bottom: -30px; right: 30px; padding: 10px;">
-                        <h5 class="text-price font-weight-bold mb-n1">${% if offer.price %}{{ offer.price|floatformat:0
-                            }}{% else %}No aplica{% endif %}
+                        <h5 class="text-price font-weight-bold mb-n1">${% if offer.price %}{{ offer.price}}{% else %}No aplica{% endif %}
                         </h5>
                     </div>
                 </div>
