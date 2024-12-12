@@ -33,8 +33,7 @@ def initial_page(request):
     principal_offers = Offer.objects.filter(offer_type=3)
     slider = Offer.objects.filter(offer_type=2).order_by("id"),
     locations=Offer.objects.filter(offer_type=4)
-    image_cards = Offer.objects.filter(offer_type=5)
-    print("image-cards:", image_cards)
+    image_cards = MainImage.objects.filter(offer__offer_type_id=5)
     return render(
         request,
         "index.html",

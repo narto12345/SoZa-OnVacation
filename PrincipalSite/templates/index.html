@@ -106,7 +106,7 @@
 <section class="image-cards">
     {% for image_card in image_cards %}
         <div class="image-card">
-            <img src="../static/img/promotions/{{image_card.main_image}}" alt="{{image_card.name}}">
+            {% load static %}<img src="{% static 'img/offers/main/' %}{{image_card.name}}" alt="{{image_card.name}}">
         </div>
     {% empty %}
         <p></p>
