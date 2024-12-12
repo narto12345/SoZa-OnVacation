@@ -31,13 +31,18 @@ def session_required(view_func):
 
 def initial_page(request):
     principal_offers = Offer.objects.filter(offer_type=3)
-    slider = Offer.objects.filter(offer_type=2).order_by("id"),
-    locations=Offer.objects.filter(offer_type=4)
+    slider = (Offer.objects.filter(offer_type=2).order_by("id"),)
+    locations = Offer.objects.filter(offer_type=4)
     image_cards = MainImage.objects.filter(offer__offer_type_id=5)
     return render(
         request,
         "index.html",
-        {"principal_offers": principal_offers, "slider_data": slider, "locations":locations, "image_cards": image_cards,},
+        {
+            "principal_offers": principal_offers,
+            "slider_data": slider,
+            "locations": locations,
+            "image_cards": image_cards,
+        },
     )
 
 
@@ -412,6 +417,24 @@ def edit_offer(request, offer_id):
                     path=path_relative_gallery,
                 )
                 gallery_image_entity.save()
+
+        if offer.offer_type.name == "slider":
+
+            if offer.slider_image:
+                slider = offer.slider_image
+                slider.name = offer.name
+                slider.slogan = offer.detail
+                slider.save()
+            else:
+                slider_object = SliderImage(name=offer.name, slogan=offer.detail)
+                slider_object.save()
+                offer.slider_image = slider_object
+
+        if offer.offer_type.name != "slider" and offer.slider_image:
+            slider_image_to_delete = offer.slider_image
+            offer.slider_image = None
+            if slider_image_to_delete:
+                slider_image_to_delete.delete()
 
         offer.save()
         messages.success(request, "¡Oferta actualizada con éxito!")
