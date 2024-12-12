@@ -104,19 +104,15 @@
 <!-- Tarjetas de contacto-Sugeridas por el cliente-->
 <!-- Sección de imágenes fijas con efecto dinámico -->
 <section class="image-cards">
-    <div class="image-card">
-        <img src="../static/img/prueba1.png" alt="Imagen 1">
-    </div>
-    <div class="image-card">
-        <img src="../static/img/prueba2.png" alt="Imagen 2">
-    </div>
-    <div class="image-card">
-        <img src="../static/img/prueba3.png" alt="Imagen 3">
-    </div>
-    <div class="image-card">
-        <img src="../static/img/prueba4.png" alt="Imagen 4">
-    </div>
+    {% for image_card in image_cards %}
+        <div class="image-card">
+            {% load static %}<img src="{% static 'img/offers/main/' %}{{image_card.name}}" alt="{{image_card.name}}">
+        </div>
+    {% empty %}
+        <p></p>
+    {% endfor %}
 </section>
+
 
 <div class="card-container">
     <div class="card-planning">

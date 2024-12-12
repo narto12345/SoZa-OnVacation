@@ -31,16 +31,13 @@ def session_required(view_func):
 
 def initial_page(request):
     principal_offers = Offer.objects.filter(offer_type=3)
-    slider = (Offer.objects.filter(offer_type=2).order_by("id"),)
-    locations = Offer.objects.filter(offer_type=4)
+    slider = Offer.objects.filter(offer_type=2).order_by("id"),
+    locations=Offer.objects.filter(offer_type=4)
+    image_cards = MainImage.objects.filter(offer__offer_type_id=5)
     return render(
         request,
         "index.html",
-        {
-            "principal_offers": principal_offers,
-            "slider_data": slider,
-            "locations": locations,
-        },
+        {"principal_offers": principal_offers, "slider_data": slider, "locations":locations, "image_cards": image_cards,},
     )
 
 
