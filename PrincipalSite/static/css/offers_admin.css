@@ -53,12 +53,12 @@
 
 /* Estilo de la tabla */
 .message-table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+    table-layout: fixed; /* Forza a que las celdas respeten el ancho definido */
+    border-collapse: collapse; /* Colapsa los bordes para que no haya espacio extra entre celdas */
     background-color: var(--light);
     margin-top: 20px;
 }
-
 
 .message-table thead {
     background-color: var(--primary);
@@ -70,6 +70,11 @@
     padding: 12px 15px;
     text-align: left;
     border: 1px solid #ddd;
+    width: 50px !important; /* Ancho fijo para todas las celdas */
+    word-wrap: break-word; /* Permite que las palabras largas se dividan en varias líneas */
+    white-space: normal; /* Permite el ajuste de texto en varias líneas */
+    overflow: hidden; /* Oculta el contenido desbordado */
+    text-overflow: ellipsis; /* Agrega "..." si el contenido se desborda */
 }
 
 .message-table tbody tr:hover {

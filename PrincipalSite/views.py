@@ -116,13 +116,13 @@ def contact(request):
 
 def offers(request, offer_type):
     if offer_type == "nacionales":
-        offers_general = Offer.objects.filter(location_menu_id=2)
+        offers_general = Offer.objects.filter(location_menu_id=2).exclude(offer_type_id=5)
     elif offer_type == "internacionales":
-        offers_general = Offer.objects.filter(location_menu_id=3)
+        offers_general = Offer.objects.filter(location_menu_id=3).exclude(offer_type_id=5)
     elif offer_type == "alojamientos":
-        offers_general = Offer.objects.filter(location_menu_id=4)
+        offers_general = Offer.objects.filter(location_menu_id=4).exclude(offer_type_id=5)
     else:
-        offers_general = Offer.objects.filter(location_menu_id=1)
+        offers_general = Offer.objects.exclude(offer_type_id=5)
 
     # offers_general=Offer.objects.filter(offer_type=1)
     return render(request, "offers.html", {"offers_general": offers_general})
