@@ -14,8 +14,8 @@
             {% for slider_item in slider_data %}
             {% if forloop.first %}
             <div class="carousel-item active">
-                {% load static %}<img class="carousel-img w-100" src="{% static '/img/offers/main/' %}{{ slider_item.main_image__name }}"
-                    alt="Image">
+                {% load static %}<img class="carousel-img w-100"
+                    src="{% static '/img/offers/main/' %}{{ slider_item.main_image__name }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">{{ slider_item.name }}</h4>
@@ -38,8 +38,8 @@
             {% for slider_item in slider_data %}
             {% if not forloop.first %}
             <div class="carousel-item">
-                {% load static %}<img class="carousel-img w-100" src="{% static '/img/offers/main/' %}{{ slider_item.main_image__name }}"
-                    alt="Image">
+                {% load static %}<img class="carousel-img w-100"
+                    src="{% static '/img/offers/main/' %}{{ slider_item.main_image__name }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">{{ slider_item.name }}</h4>
@@ -105,11 +105,11 @@
 <!-- Sección de imágenes fijas con efecto dinámico -->
 <section class="image-cards">
     {% for image_card in image_cards %}
-        <div class="image-card">
-            {% load static %}<img src="{% static 'img/offers/main/' %}{{image_card.name}}" alt="{{image_card.name}}">
-        </div>
+    <div class="image-card">
+        {% load static %}<img src="{% static 'img/offers/main/' %}{{image_card.name}}" alt="{{image_card.name}}">
+    </div>
     {% empty %}
-        <p></p>
+    <p></p>
     {% endfor %}
 </section>
 
@@ -158,12 +158,13 @@
             </h1>
         </div>
     </div>
-        <div class="row m-0 portfolio-container">
-            {% for location in locations %}
+    <div class="row m-0 portfolio-container">
+        {% for location in locations %}
 
         <div class="col-lg-4 col-md-6 p-0 portfolio-item">
             <div class="position-relative overflow-hidden">
-                {% load static %}<img class="img-fluid w-100" src="{% static '/img/offers/main/' %}{{ location.main_image__name }}">
+                {% load static %}<img class="img-fluid w-100"
+                    src="{% static '/img/offers/main/' %}{{ location.main_image__name }}">
                 <a class="portfolio-btn container-main-detination" href="#">
                     <div class="main-destination">
                         <h2>{{location.name}}</h2>
@@ -171,8 +172,9 @@
                     </div>
                 </a>
             </div>
-            {% endfor %}
-        </div>       
+
+        </div>
+        {% endfor %}
 
     </div>
 </div>
