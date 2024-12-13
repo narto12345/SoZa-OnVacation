@@ -20,7 +20,7 @@
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">{{ slider_item.name }}</h4>
                         <h1 class="display-3 text-white mb-md-4">{{slider_item.detail}}</h1>
-                        <a href="#" class="btn btn-general py-md-3 px-md-5 mt-2">Más detalles</a>
+                        <a href="{% url 'offer-detail' name_offer=slider_item.id %}" class="btn btn-general py-md-3 px-md-5 mt-2">Más detalles</a>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">{{ slider_item.name }}</h4>
                         <h1 class="display-3 text-white mb-md-4">{{slider_item.detail}}</h1>
-                        <a href="#" class="btn btn-general py-md-3 px-md-5 mt-2">Más detalles</a>
+                        <a href="{% url 'offer-detail' name_offer=slider_item.id %}" class="btn btn-general py-md-3 px-md-5 mt-2">Más detalles</a>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                             style="margin-top: -75px;">
                             <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">{{ offerp.name }}</h5>
                             <p>{{ offerp.detail }}</p>
-                            <a href="#" class="border-bottom border-secondary text-decoration-none text-primary">Más
+                            <a href="{% url 'offer-detail' name_offer=offerp.id %}" class="border-bottom border-secondary text-decoration-none text-primary">Más
                                 detalles</a>
                         </div>
                     </div>
@@ -165,7 +165,7 @@
             <div class="position-relative overflow-hidden">
                 {% load static %}<img class="img-fluid w-100"
                     src="{% static '/img/offers/main/' %}{{ location.main_image__name }}">
-                <a class="portfolio-btn container-main-detination" href="#">
+                <a class="portfolio-btn container-main-detination" href="{% url 'offer-detail' name_offer=location.id %}">
                     <div class="main-destination">
                         <h2>{{location.name}}</h2>
                         <p>(Ver Oferta)</p>

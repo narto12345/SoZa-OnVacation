@@ -54,7 +54,7 @@
                 <h3 class="mb-4 section-title">Conoce Más</h3>
                 {% for image in gallery_images %}
                 <div class="mb-3">
-                    <img src="{% static 'img/offers/gallery/' %}{{ image.name }}"alt="" class="img-fluid rounded">
+                    <img src="{% static 'img/offers/gallery/' %}{{ image.name }}"alt="" class="img-fluid rounded fixed-size-image">
                 </div>
                 {% endfor %}
 

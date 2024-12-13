@@ -7080,6 +7080,7 @@ button.bg-primary:focus {
 
 .bg-secondary {
   background-color: var(--background-card);
+  height: 100%;
 }
 
 a.bg-secondary:hover,
@@ -11451,7 +11452,7 @@ h6,
   right: 20px;
   width: 80px;
   height: 80px;
-  background-color: #25d366;
+  background-color: #33d333;
   border-radius: 50%;
   display: flex;
   align-items: center;

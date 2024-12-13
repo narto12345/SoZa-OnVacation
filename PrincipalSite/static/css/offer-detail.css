@@ -67,3 +67,9 @@
         margin-top: 10px;
     }
 }
+.fixed-size-image {
+    width: 200px;           /* Ancho fijo */
+    height: 150px;  
+    object-fit: cover;      /* Ajusta la imagen para cubrir el área sin distorsionarla */
+    display: block;         /* Asegura que la imagen se comporte como un bloque */
+}
