@@ -31,9 +31,11 @@ def session_required(view_func):
 
 def initial_page(request):
     principal_offers = Offer.objects.filter(offer_type=3)
-    slider = (Offer.objects.filter(offer_type=2).order_by("id"),)
-    locations = Offer.objects.filter(offer_type=4)
+    slider = Offer.objects.filter(offer_type=2).select_related('main_image').values('id', 'offer_type', 'main_image__name','name', 'detail')
+    locations = Offer.objects.filter(offer_type=4).select_related('main_image').values('id', 'offer_type', 'main_image__name','name', 'detail')
     image_cards = MainImage.objects.filter(offer__offer_type_id=5)
+
+
     return render(
         request,
         "index.html",
